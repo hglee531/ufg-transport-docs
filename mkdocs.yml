@@ -1,0 +1,84 @@
+site_name: UFG-Transport
+site_description: Ultra-fine-group deterministic neutron transport with an ACE → UFG → solver pipeline.
+site_author: Han Gyu Lee
+site_url: https://hglee531.github.io/ufg-transport-docs/
+
+repo_url: https://github.com/hglee531/ufg-transport-docs
+repo_name: hglee531/ufg-transport-docs
+edit_uri: edit/main/docs_site/
+
+docs_dir: docs_site
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.caret
+  - pymdownx.tilde
+
+extra_javascript:
+  - assets/js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Theory:
+      - Overview: theory/overview.md
+      - ACE & HDF5 data: theory/ace_and_hdf5.md
+      - UFG grid & scattering: theory/ufg_grid.md
+      - Thermal scattering: theory/thermal_scattering.md
+      - Sn (slab): theory/solvers_sn.md
+      - Pn (slab): theory/solvers_pn.md
+      - CPM (cylindrical): theory/solvers_cpm.md
+      - Sn (cylindrical): theory/solvers_sn_cyl.md
+      - Multi-level condensation: theory/multilevel.md
+  - User Guide:
+      - Install & build: guide/install.md
+      - Running the code: guide/running.md
+  - Demonstrations:
+      - Pin-cell verification: demos/pincell_verification.md
+      - Multi-level flux: demos/multilevel_flux.md
