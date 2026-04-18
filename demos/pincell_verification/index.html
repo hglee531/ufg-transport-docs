@@ -407,6 +407,8 @@
       
         
       
+        
+      
     
     
     
@@ -571,6 +573,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../../theory/resonance_kernel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resonance kernel (O&S)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/urr_ptable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URR p-tables (NR)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../theory/solvers_sn/" class="md-nav__link">
         
   
@@ -627,62 +685,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../theory/solvers_cpm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CPM (cylindrical)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../theory/solvers_sn_cyl/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sn (cylindrical)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../theory/multilevel/" class="md-nav__link">
         
   
@@ -691,6 +693,34 @@
     
   
     Multi-level condensation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/specex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spectrum Expansion (SpecEx)
   
 
     
@@ -962,10 +992,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cpm-vs-openmc" class="md-nav__link">
+  <a href="#geometry" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CPM vs OpenMC
+        Geometry
       
     </span>
   </a>
@@ -973,10 +1003,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sn-vs-openmc" class="md-nav__link">
+  <a href="#slab-s_n-vs-openmc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sn vs OpenMC
+        Slab \(S_N\) vs OpenMC
       
     </span>
   </a>
@@ -984,10 +1014,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cpm-vs-pn-cross-solver-sanity-check" class="md-nav__link">
+  <a href="#slab-s_n-vs-slab-p_n-cross-solver-sanity-check" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CPM vs Pn (cross-solver sanity check)
+        Slab \(S_N\) vs slab \(P_N\) — cross-solver sanity check
       
     </span>
   </a>
@@ -1087,10 +1117,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cpm-vs-openmc" class="md-nav__link">
+  <a href="#geometry" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CPM vs OpenMC
+        Geometry
       
     </span>
   </a>
@@ -1098,10 +1128,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sn-vs-openmc" class="md-nav__link">
+  <a href="#slab-s_n-vs-openmc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sn vs OpenMC
+        Slab \(S_N\) vs OpenMC
       
     </span>
   </a>
@@ -1109,10 +1139,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cpm-vs-pn-cross-solver-sanity-check" class="md-nav__link">
+  <a href="#slab-s_n-vs-slab-p_n-cross-solver-sanity-check" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CPM vs Pn (cross-solver sanity check)
+        Slab \(S_N\) vs slab \(P_N\) — cross-solver sanity check
       
     </span>
   </a>
@@ -1162,97 +1192,97 @@
 
 
 <h1 id="pin-cell-verification-against-openmc">Pin-cell verification against OpenMC<a class="headerlink" href="#pin-cell-verification-against-openmc" title="Permanent link">&para;</a></h1>
-<p>The PWR pin-cell benchmark is the primary verification case: a 17×17-style fuel
-pin (3.1 wt% UO₂), helium gap, Zircaloy-4 cladding, and H₂O moderator in a
-Wigner–Seitz equivalent cylinder. UFG-Transport solves the 1-D cylindrical
-fixed-source problem at UFG resolution and compares against an OpenMC Monte-Carlo
-reference of the same geometry.</p>
-<p>Geometry (from <code>examples/pwr_pincell_multilevel_sn.i</code>):</p>
+<p>The PWR pin-cell benchmark is the primary verification case for the slab
+solvers: a 17×17-style fuel pin (3.1 wt % UO₂), helium gap, Zircaloy-4
+cladding, and H₂O moderator laid out as a 1-D slab of equivalent thicknesses.
+UFG-Transport solves a 1-D fixed-source problem at UFG resolution and
+compares against an OpenMC Monte-Carlo reference of an equivalent geometry.</p>
+<h2 id="geometry">Geometry<a class="headerlink" href="#geometry" title="Permanent link">&para;</a></h2>
+<p>Representative slab layout used in the verification runs (from
+<code>examples/pwr_pincell_multilevel_sn.i</code>):</p>
 <table>
 <thead>
 <tr>
-<th>Ring</th>
+<th>Region</th>
 <th>Material</th>
-<th>Radial extent (cm)</th>
+<th>Thickness (cm)</th>
 <th>Cells</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>0</td>
-<td>UO₂ (3.1 wt%)</td>
-<td>0.0000 → 0.4096</td>
+<td>UO₂ (3.1 wt %)</td>
+<td>0.4096</td>
 <td>20</td>
 </tr>
 <tr>
 <td>1</td>
 <td>Helium</td>
-<td>0.4096 → 0.4180</td>
+<td>0.0084</td>
 <td>2</td>
 </tr>
 <tr>
 <td>2</td>
 <td>Zircaloy-4</td>
-<td>0.4180 → 0.4750</td>
+<td>0.0570</td>
 <td>5</td>
 </tr>
 <tr>
 <td>3</td>
 <td>H₂O</td>
-<td>0.4750 → 0.6300</td>
+<td>0.1550</td>
 <td>15</td>
 </tr>
 </tbody>
 </table>
-<p>Inner BC: reflective (symmetry axis). Outer BC: white (Wigner–Seitz approximation
-of the square lattice pitch 1.26 cm).</p>
-<h2 id="cpm-vs-openmc">CPM vs OpenMC<a class="headerlink" href="#cpm-vs-openmc" title="Permanent link">&para;</a></h2>
-<p><img alt="CPM vs OpenMC, lin-x" src="../../assets/images/pincell_cpm_vs_openmc.png" />
-/// caption
-Volume-averaged flux per unit lethargy in each of the four pin-cell regions.
-Solid lines: UFG-Transport CPM at 2,000 groups. Dashed lines: OpenMC Monte-Carlo
-reference, normalised by the single constant described in
-<code>docs/normalization_protocol.md</code>.
-///</p>
-<p><img alt="CPM vs OpenMC, log-log" src="../../assets/images/pincell_cpm_vs_openmc_loglog.png" />
-/// caption
-Same comparison on log–log axes. The slowing-down region (1 eV to 100 keV) shows
-<span class="arithmatex">\(1/E\)</span> behaviour cleanly. Resonance absorption in the fuel (visible as the
-orange-line notches near 6.7 eV, 20 eV, 36 eV) is captured by the UFG library
-without an explicit self-shielding correction.
-///</p>
-<h2 id="sn-vs-openmc">Sn vs OpenMC<a class="headerlink" href="#sn-vs-openmc" title="Permanent link">&para;</a></h2>
+<p>Inner BC: reflective. Outer BC: white (Wigner–Seitz approximation of the
+square lattice pitch 1.26 cm).</p>
+<div class="admonition note">
+<p class="admonition-title">Cylindrical geometry is not currently part of the verification set</p>
+<p>Both the 1-D cylindrical <span class="arithmatex">\(S_N\)</span> solver and the cylindrical CPM solver are
+excluded from the verified-solver list — see the
+<a href="../../#status">status section</a> for details. The slab <span class="arithmatex">\(S_N\)</span> / <span class="arithmatex">\(P_N\)</span>
+pair is the trusted comparison path today.</p>
+</div>
+<h2 id="slab-s_n-vs-openmc">Slab <span class="arithmatex">\(S_N\)</span> vs OpenMC<a class="headerlink" href="#slab-s_n-vs-openmc" title="Permanent link">&para;</a></h2>
 <p><img alt="Sn S2 flux vs OpenMC" src="../../assets/images/pincell_sn_S2_vs_openmc.png" />
 /// caption
-Cylindrical <span class="arithmatex">\(S_2\)</span> solver flux vs OpenMC. <span class="arithmatex">\(S_2\)</span> is the cheapest meaningful
-ordinate set; agreement is within a few percent across all four regions.
+Volume-averaged flux per unit lethargy in each slab region. Solid lines:
+slab <span class="arithmatex">\(S_2\)</span> at UFG resolution. Dashed lines: OpenMC Monte-Carlo reference,
+normalised by the single-constant rule described in
+<code>docs/normalization_protocol.md</code>. Agreement is within a few percent across
+all four regions.
 ///</p>
 <p><img alt="Sn σ-effective vs OpenMC" src="../../assets/images/pincell_sn_sigma_eff_vs_openmc.png" />
 /// caption
-Effective cross section (flux-weighted fuel-zone average) as a function of
-energy. The UFG library reproduces OpenMC's effective absorption behaviour
-in the large resonances without any Bondarenko or subgroup correction.
+Effective cross section (flux-weighted fuel-zone average) vs energy. The UFG
+library reproduces OpenMC's effective absorption behaviour in the large U-238
+resonances (6.67 eV, 20.9 eV, 36.7 eV, …) without an explicit Bondarenko or
+subgroup correction — the resonances are resolved directly by the HFG grid
+and then flux-collapsed to UFG.
 ///</p>
-<h2 id="cpm-vs-pn-cross-solver-sanity-check">CPM vs Pn (cross-solver sanity check)<a class="headerlink" href="#cpm-vs-pn-cross-solver-sanity-check" title="Permanent link">&para;</a></h2>
-<p>To cross-validate the solvers themselves, the pin-cell problem is also solved
-with slab <span class="arithmatex">\(P_N\)</span> on an equivalent slab geometry:</p>
-<p><img alt="CPM vs Pn — flux spectra" src="../../assets/images/cpm_vs_pn_flux_spectra.png" />
+<h2 id="slab-s_n-vs-slab-p_n-cross-solver-sanity-check">Slab <span class="arithmatex">\(S_N\)</span> vs slab <span class="arithmatex">\(P_N\)</span> — cross-solver sanity check<a class="headerlink" href="#slab-s_n-vs-slab-p_n-cross-solver-sanity-check" title="Permanent link">&para;</a></h2>
+<p>The two verified solvers are cross-checked against each other on the same
+problem:</p>
+<p><img alt="SN vs PN — flux spectra" src="../../assets/images/cpm_vs_pn_flux_spectra.png" />
 /// caption
-Scalar flux spectra in each region: CPM (cylindrical) vs <span class="arithmatex">\(P_3\)</span> (slab-equivalent).
-Agreement in the epithermal and fast regions is excellent; small discrepancies
-in the thermal region reflect the genuine geometric difference between the
-cylindrical Wigner–Seitz cell and its 1-D slab approximation, not a code bug.
+Scalar flux spectra in each region for the multi-level pin-cell: <span class="arithmatex">\(S_8\)</span> vs
+<span class="arithmatex">\(P_3\)</span>. The two solvers agree in the slowing-down and fast regions; small
+discrepancies in the thermal tail reflect the different angular treatments
+rather than a data or library issue.
 ///</p>
-<p><img alt="CPM vs Pn — flux moments" src="../../assets/images/cpm_vs_pn_flux_moments.png" />
+<p><img alt="SN vs PN — flux moments" src="../../assets/images/cpm_vs_pn_flux_moments.png" />
 /// caption
-Legendre moments <span class="arithmatex">\(\phi_1/\phi_0\)</span> in the slab <span class="arithmatex">\(P_3\)</span> solution, showing the
-anisotropy level expected in a moderated system.
+Legendre moments <span class="arithmatex">\(\phi_1 / \phi_0\)</span> in the <span class="arithmatex">\(P_3\)</span> solution, showing the
+anisotropy level expected in a moderated system. The slab <span class="arithmatex">\(S_N\)</span> solver
+reconstructs the same moment information from its quadrature over <span class="arithmatex">\(\mu_n\)</span>.
 ///</p>
 <h2 id="collapsed-mg-library">Collapsed MG library<a class="headerlink" href="#collapsed-mg-library" title="Permanent link">&para;</a></h2>
 <p><img alt="CASMO-70 MG XS" src="../../assets/images/cpm_vs_pn_mg_xs.png" />
 /// caption
 UFG → MG collapsed total macroscopic cross section on the CASMO-70 group
-structure. This is the "output" library a downstream lattice code would consume.
+structure — the "output" library a downstream lattice code would consume.
 ///</p>
 <h2 id="running-this-case-yourself">Running this case yourself<a class="headerlink" href="#running-this-case-yourself" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>build/Release
@@ -1260,16 +1290,17 @@ structure. This is the "output" library a downstream lattice code would consume.
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">             </span>--solver<span class="w"> </span>sn<span class="w"> </span>--sn-order<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">             </span>--output-dir<span class="w"> </span>../../output/pincell_multilevel_sn
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>./ufg_1d_app<span class="w"> </span>../../examples/pwr_pincell_multilevel_cpm.i<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">             </span>--solver<span class="w"> </span>cpm<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">             </span>--output-dir<span class="w"> </span>../../output/pincell_multilevel_cpm
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>./ufg_1d_app<span class="w"> </span>../../examples/pwr_pincell_multilevel_pn.i<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">             </span>--solver<span class="w"> </span>pn<span class="w"> </span>--pn-order<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">             </span>--output-dir<span class="w"> </span>../../output/pincell_multilevel_pn
 </code></pre></div>
-<p>Then compare:</p>
+<p>Compare against OpenMC:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>scripts/compare_vs_openmc.py<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>output/pincell_multilevel_sn<span class="w"> </span>output/pincell_multilevel_cpm<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>output/pincell_multilevel_sn<span class="w"> </span>output/pincell_multilevel_pn<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>--openmc<span class="w"> </span>reference/openmc_pincell.h5
 </code></pre></div>
-<p>See the <a href="../../guide/running/">running guide</a> for the complete CLI reference.</p>
+<p>See the <a href="../../guide/running/">running guide</a> for the complete CLI reference
+and the mandatory normalisation protocol (<code>docs/normalization_protocol.md</code>).</p>
 
 
 

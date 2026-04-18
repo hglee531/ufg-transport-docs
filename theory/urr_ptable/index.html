@@ -12,13 +12,13 @@
         <meta name="author" content="Han Gyu Lee">
       
       
-        <link rel="canonical" href="https://hglee531.github.io/ufg-transport-docs/theory/solvers_cpm/">
+        <link rel="canonical" href="https://hglee531.github.io/ufg-transport-docs/theory/urr_ptable/">
       
       
-        <link rel="prev" href="../solvers_pn/">
+        <link rel="prev" href="../resonance_kernel/">
       
       
-        <link rel="next" href="../solvers_sn_cyl/">
+        <link rel="next" href="../solvers_sn/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>CPM (cylindrical) - UFG-Transport</title>
+        <title>URR p-tables (NR) - UFG-Transport</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cpm-cylindrical-geometry" class="md-skip">
+        <a href="#urr-probability-tables-narrow-resonance-sampling" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CPM (cylindrical)
+              URR p-tables (NR)
             
           </span>
         </div>
@@ -409,6 +409,8 @@
       
         
       
+        
+      
     
     
     
@@ -576,6 +578,203 @@
   
   
     <li class="md-nav__item">
+      <a href="../resonance_kernel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resonance kernel (O&S)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URR p-tables (NR)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URR p-tables (NR)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-narrow-resonance-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The narrow-resonance approximation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The narrow-resonance approximation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-nr-does-not-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What NR does not do
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-urr-block-writes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the URR block writes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pseudocode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pseudocode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-and-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification and limits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../solvers_sn/" class="md-nav__link">
         
   
@@ -629,186 +828,6 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CPM (cylindrical)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CPM (cylindrical)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#governing-equation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Governing equation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#collision-probabilities-via-bickleynaylor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Collision probabilities via Bickley–Naylor
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#boundary-conditions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Boundary conditions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#algorithm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Algorithm
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cli-invocation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI invocation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#strengths-and-limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Strengths and limitations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cross-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-references
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../solvers_sn_cyl/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sn (cylindrical)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
@@ -820,6 +839,34 @@
     
   
     Multi-level condensation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../specex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spectrum Expansion (SpecEx)
   
 
     
@@ -1109,10 +1156,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#governing-equation" class="md-nav__link">
+  <a href="#the-narrow-resonance-approximation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Governing equation
+        The narrow-resonance approximation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The narrow-resonance approximation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-nr-does-not-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What NR does not do
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-urr-block-writes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the URR block writes
       
     </span>
   </a>
@@ -1120,10 +1195,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#collision-probabilities-via-bickleynaylor" class="md-nav__link">
+  <a href="#pseudocode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Collision probabilities via Bickley–Naylor
+        Pseudocode
       
     </span>
   </a>
@@ -1131,10 +1206,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#boundary-conditions" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Boundary conditions
+        Configuration
       
     </span>
   </a>
@@ -1142,10 +1217,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#algorithm" class="md-nav__link">
+  <a href="#verification-and-limits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Algorithm
+        Verification and limits
       
     </span>
   </a>
@@ -1153,10 +1228,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cli-invocation" class="md-nav__link">
+  <a href="#files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI invocation
+        Files
       
     </span>
   </a>
@@ -1164,21 +1239,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#strengths-and-limitations" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Strengths and limitations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cross-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-references
+        References
       
     </span>
   </a>
@@ -1205,77 +1269,122 @@
   
 
 
-<h1 id="cpm-cylindrical-geometry">CPM — cylindrical geometry<a class="headerlink" href="#cpm-cylindrical-geometry" title="Permanent link">&para;</a></h1>
-<p>The Collision Probability Method (CPM) discretises the integral form of the
-transport equation by tabulating the probability that a neutron born isotropically
-and uniformly in one region has its <strong>first collision</strong> in another. In cylindrical
-geometry, these probabilities reduce to integrals of <strong>Bickley–Naylor functions</strong>
-<span class="arithmatex">\(\text{Ki}_n\)</span> along chords across the pin.</p>
-<p>UFG-Transport implements flat-source <span class="arithmatex">\(P_0\)</span> CPM for 1-D cylindrical pin-cell
-problems. The full derivation is in <code>docs/solver_theory_and_algorithms.md</code> §8.</p>
-<h2 id="governing-equation">Governing equation<a class="headerlink" href="#governing-equation" title="Permanent link">&para;</a></h2>
-<p>Under the flat-source and isotropic-scattering assumptions, the scalar flux in
-region <span class="arithmatex">\(i\)</span> satisfies</p>
+<h1 id="urr-probability-tables-narrow-resonance-sampling">URR probability tables (narrow-resonance sampling)<a class="headerlink" href="#urr-probability-tables-narrow-resonance-sampling" title="Permanent link">&para;</a></h1>
+<p>Between the <strong>resolved resonance region</strong> (RRR, typically up to a few keV for
+actinides) and the smooth fast region, nuclear evaluations contain an
+<strong>unresolved resonance region (URR)</strong> — an energy range in which individual
+resonances overlap, so the published cross section is a statistical average
+rather than a point-wise curve. Running a UFG library on the URR-averaged
+point-wise data alone under-predicts resonance self-shielding: the dips of
+individual (unresolved) resonances are averaged out before the flux-weighting
+step can act on them.</p>
+<p>ENDF MF 2 / LRU 2 provides <strong>probability tables</strong> (p-tables): at each energy
+grid point <span class="arithmatex">\(E_k\)</span> in the URR, a histogram of <span class="arithmatex">\((\sigma_t, \sigma_a, \sigma_e,
+\sigma_f)\)</span> values together with a probability (CDF) for each band. UFG-Transport
+uses the <strong>narrow-resonance (NR)</strong> approximation to fold these bands into the
+UFG library.</p>
+<h2 id="the-narrow-resonance-approximation">The narrow-resonance approximation<a class="headerlink" href="#the-narrow-resonance-approximation" title="Permanent link">&para;</a></h2>
+<p>The NR approximation assumes that the neutron flux within one unresolved
+resonance is proportional to <span class="arithmatex">\(1/[\sigma_t(E) \cdot E]\)</span> — i.e. that the
+neutron's energy loss per scattering event is much larger than the resonance
+width, so a neutron effectively sees a single resonance only once and then
+escapes to lower energy. In the p-table language this translates to: the
+expected cross section in a narrow URR band is the <strong>CDF-weighted band
+average</strong>,</p>
 <div class="arithmatex">\[
-\phi_i \;V_i\;\Sigma_{t,i}
+\langle \sigma_x \rangle_g
 \;=\;
-\sum_{j} P_{j\to i}\;V_j\,Q_j,
+\sum_{k=1}^{N_\text{band}} w_k\,\sigma_{x,k}(E_g),
+\qquad
+\sum_k w_k = 1,
 \]</div>
-<p>where <span class="arithmatex">\(V_i\)</span> is the region volume (per unit axial length), <span class="arithmatex">\(Q_j\)</span> is the total
-source in region <span class="arithmatex">\(j\)</span> (scattering + fission + external), and <span class="arithmatex">\(P_{j\to i}\)</span> is the
-first-flight collision probability.</p>
-<h2 id="collision-probabilities-via-bickleynaylor">Collision probabilities via Bickley–Naylor<a class="headerlink" href="#collision-probabilities-via-bickleynaylor" title="Permanent link">&para;</a></h2>
-<p>For an annular-ring discretisation with regions labelled by radial index <span class="arithmatex">\(i\)</span>, the
-key building block is the chord transmission. For a chord at impact parameter
-<span class="arithmatex">\(y\)</span> and cumulative optical path <span class="arithmatex">\(\tau\)</span>,</p>
-<div class="arithmatex">\[
-\int_0^{\pi/2}\!e^{-\tau/\cos\theta}\,d\theta \;=\; \text{Ki}_3(\tau),
-\]</div>
-<p>the third-order Bickley–Naylor function. Region-to-region collision probabilities
-are computed by integrating <span class="arithmatex">\(\text{Ki}_3\)</span> differences over the chord impact
-parameters that cross each ring, and then dividing by region volumes.</p>
-<p>UFG-Transport evaluates <span class="arithmatex">\(\text{Ki}_n(x)\)</span> directly by Gauss–Legendre quadrature on
-its integral representation (<code>src/utils/bickley.cpp</code>); no lookup tables are used.</p>
-<h2 id="boundary-conditions">Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permanent link">&para;</a></h2>
+<p>where <span class="arithmatex">\(\sigma_{x,k}\)</span> is the band-<span class="arithmatex">\(k\)</span> cross section at the energy <span class="arithmatex">\(E_g\)</span> (the
+UFG group midpoint, located by bracketing in the URR energy grid), and <span class="arithmatex">\(w_k\)</span>
+is the probability of being in band <span class="arithmatex">\(k\)</span> (from the CDF column of the p-table).</p>
+<p>The <code>multiply_smooth</code> option additionally scales each band value by the
+smooth point-wise <span class="arithmatex">\(\sigma_x(E_g)\)</span> from the background file — useful when the
+p-tables provide <strong>ratios</strong> rather than absolute cross sections (this is
+evaluation-dependent).</p>
+<h3 id="what-nr-does-not-do">What NR does <em>not</em> do<a class="headerlink" href="#what-nr-does-not-do" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Inner boundary</strong> (<span class="arithmatex">\(r=0\)</span>) — reflective by symmetry (no explicit condition is
-  needed: the ring volume integrals handle the axis).</li>
-<li><strong>Outer boundary</strong> — <strong>white</strong> (isotropic return), appropriate for a
-  Wigner–Seitz pin-cell cylindrical approximation of a square pitch lattice.</li>
+<li>It does <strong>not</strong> solve a self-consistent slowing-down equation inside the URR
+  at the p-table level — that would be the <strong>intermediate-resonance (IR)</strong> or
+  <strong>full flux-folding</strong> approach. The NR result feeds the downstream HFG → UFG
+  flux-weighted collapse, which does effectively see a self-shielded flux.</li>
+<li>It does <strong>not</strong> currently interpolate p-tables across temperature. For
+  target temperatures that don't match an ACE temperature, the p-table is
+  read from the nearest tabulated temperature and the downstream
+  <a href="../multilevel/#temperature-interpolation">cube-root-of-T interpolation</a>
+  handles the smooth variation.</li>
 </ul>
-<p>The white BC is realised by a single extra collision-probability entry that
-returns any neutron escaping the outer ring as an isotropic source distributed
-over the outer ring by volume.</p>
-<h2 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>compute P_{j→i} once per geometry + XS set (N_reg^2 entries)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>repeat source iteration until ‖φ^(k+1) - φ^(k)‖ &lt; tol:
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    assemble Q_j = Σ_{g&#39;} Σ_s^{g&#39;→g} φ_{g&#39;,j} + χ_g Q_fis,j + Q_ext
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    φ_i = (Σ_j P_{j→i} V_j Q_j) / (V_i Σ_{t,i})
-</code></pre></div>
-<p>Collision probabilities are built once per group per (ring radii, <span class="arithmatex">\(\Sigma_{t,g}\)</span>)
-tuple. At UFG resolution the <span class="arithmatex">\(P_{j\to i}\)</span> matrices dominate the compute; a dense
-table is fine for the handful of rings typical of a pin cell.</p>
-<h2 id="cli-invocation">CLI invocation<a class="headerlink" href="#cli-invocation" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./ufg_1d_app<span class="w"> </span>input.i<span class="w"> </span>--solver<span class="w"> </span>cpm<span class="w"> </span>--output-dir<span class="w"> </span>../output/myrun
-</code></pre></div>
-<p>CPM has no angular-order flag; it is intrinsically <span class="arithmatex">\(P_0\)</span> in scatter and in spatial
-source. Higher-order CPM (DP<span class="arithmatex">\(_N\)</span>, or <span class="arithmatex">\(P_1\)</span> correction) is planned but not yet
-implemented.</p>
-<h2 id="strengths-and-limitations">Strengths and limitations<a class="headerlink" href="#strengths-and-limitations" title="Permanent link">&para;</a></h2>
-<p><strong>Strong points.</strong> Handles the pin cell geometry natively, with exact analytic
-treatment of the radial streaming via <span class="arithmatex">\(\text{Ki}_3\)</span>. No ray effect. Excellent for
-resonance self-shielding studies when the UFG library has sharp peaks — the
-collision probability picks up the resonance absorption in the fuel ring
-accurately.</p>
-<p><strong>Limitations.</strong> Flat source per region means fine rings are required inside
-regions with strong flux gradients (the fuel periphery, for instance). Isotropic
-scatter only — anisotropic CPM would multiply the table by one more dimension per
-Legendre order and is a known research topic.</p>
-<h2 id="cross-references">Cross-references<a class="headerlink" href="#cross-references" title="Permanent link">&para;</a></h2>
+<h2 id="what-the-urr-block-writes">What the URR block writes<a class="headerlink" href="#what-the-urr-block-writes" title="Permanent link">&para;</a></h2>
+<p>For each UFG group <span class="arithmatex">\(g\)</span> whose midpoint falls inside the URR energy range of a
+nuclide, the XS processor overrides the smooth-only values of:</p>
 <ul>
-<li><code>docs/solver_theory_and_algorithms.md</code> §8 — full CPM derivation with Bickley
-  identities.</li>
-<li><code>src/solver/solver_cpm.cpp</code>, <code>src/utils/bickley.cpp</code> — implementation.</li>
+<li><span class="arithmatex">\(\sigma_t^{(g)}\)</span>,</li>
+<li><span class="arithmatex">\(\sigma_e^{(g)}\)</span>,</li>
+<li><span class="arithmatex">\(\sigma_f^{(g)}\)</span> (where applicable),</li>
+</ul>
+<p>with the NR-expected value <span class="arithmatex">\(\langle \sigma_x \rangle_g\)</span>. Capture is derived as
+<span class="arithmatex">\(\sigma_c = \sigma_t - \sigma_e - \sigma_f\)</span> to preserve the balance.</p>
+<p>The <strong>scattering transfer matrix</strong> <span class="arithmatex">\(\Sigma_{s,\ell}^{\,g \to g'}\)</span> is <strong>not</strong>
+rebuilt from p-tables; it uses the smooth angular/energy distribution from
+the background file. The reasoning is that the URR angular distributions are
+statistical and near-isotropic; differentiating them between bands would
+require sampling-level detail that ENDF does not publish.</p>
+<h2 id="pseudocode">Pseudocode<a class="headerlink" href="#pseudocode" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>for each UFG group g in URR [E_min, E_max]:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    (k_lo, k_hi, w_interp) = bracket_urr_energy_points(E_g)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    P = interpolate_ptable(P[k_lo], P[k_hi], w_interp)     # lin-lin or log-log
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    for each reaction x in {sigma_t, sigma_e, sigma_f}:
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        sigma_bar = sum_k P.probability[k] * P.sigma_x[k]
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        if multiply_smooth:
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            sigma_bar *= sigma_x_smooth(E_g)
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        out.sigma_x[g] = sigma_bar
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    out.sigma_c[g] = out.sigma_t[g] - out.sigma_e[g] - out.sigma_f[g]
+</code></pre></div>
+<p>All of this runs inside the normal XS processor loop, immediately after the
+smooth group averaging and before the scattering-matrix assembly.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>The URR override is on by default whenever p-tables are present in the ACE
+library; it can be disabled via <code>skip_urr = true</code> in the XS processor config.
+The reader handles the p-table dataset directly in <code>src/ace/ace_reader.cpp</code>
+and exposes it through the <code>ufg::ace::ProbabilityTable</code> struct
+(<code>include/ace/ace_table.hpp</code>).</p>
+<h2 id="verification-and-limits">Verification and limits<a class="headerlink" href="#verification-and-limits" title="Permanent link">&para;</a></h2>
+<p>The NR p-table override matches the URR-averaged OpenMC cross sections
+point-for-point at each band-sampled energy — this is by construction,
+because both are computing <span class="arithmatex">\(\langle \sigma \rangle\)</span> against the same CDF.</p>
+<p>The limits of the NR approximation show up in two places:</p>
+<ol>
+<li><strong>Very narrow URR levels at low energy</strong>, where the narrow-resonance
+   assumption (<span class="arithmatex">\(\Delta u_\text{scatter} \gg \Gamma\)</span>) starts to break down.
+   This is usually already covered by the RRR in modern evaluations.</li>
+<li><strong>Heterogeneity self-shielding</strong>, where the NR <span class="arithmatex">\(1/\Sigma_t E\)</span> flux shape
+   inside the resonance does not apply to a pincell geometry. The multi-level
+   pipeline's downstream 0-D HFG solve partially compensates, but a full
+   IR / subgroup treatment would be more faithful. This is a candidate for a
+   follow-up research item.</li>
+</ol>
+<h2 id="files">Files<a class="headerlink" href="#files" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>include/ace/ace_table.hpp</code> (<code>ProbabilityTable</code> struct).</li>
+<li><code>src/ace/ace_reader.cpp</code> — p-table dataset loading.</li>
+<li><code>src/xs/xs_processor.cpp</code> — NR expected-value sampling, called from the
+  main XS processor loop when a group falls inside the URR.</li>
+<li><code>coldcase/unresolved_resonance.md</code> — design notes and follow-up items
+  (p-table temperature interpolation, IR extension).</li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li>L. B. Levitt, <em>The Probability Table Method for Treating Unresolved
+  Neutron Resonances in Monte Carlo Calculations</em>, Nuclear Science and
+  Engineering <strong>49</strong>, 450 (1972).</li>
+<li>D. E. Cullen, <em>Application of the Probability Table Method to Multigroup
+  Calculations</em>, UCRL-79761 (1977).</li>
+<li>R. E. MacFarlane, <em>NJOY: The Nuclear Data Processing System</em>
+  (LA-UR-17-20093), UNRESR module.</li>
+<li>ENDF-6 Manual, Chapter 2 (File 2, LRU = 2).</li>
 </ul>
 
 

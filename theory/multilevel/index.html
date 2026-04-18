@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://hglee531.github.io/ufg-transport-docs/theory/multilevel/">
       
       
-        <link rel="prev" href="../solvers_sn_cyl/">
+        <link rel="prev" href="../solvers_pn/">
       
       
-        <link rel="next" href="../../guide/install/">
+        <link rel="next" href="../specex/">
       
       
         
@@ -409,6 +409,8 @@
       
         
       
+        
+      
     
     
     
@@ -576,6 +578,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../resonance_kernel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resonance kernel (O&S)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../urr_ptable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URR p-tables (NR)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../solvers_sn/" class="md-nav__link">
         
   
@@ -612,62 +670,6 @@
     
   
     Pn (slab)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../solvers_cpm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CPM (cylindrical)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../solvers_sn_cyl/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sn (cylindrical)
   
 
     
@@ -804,10 +806,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-0-d-fixed-source-per-composition" class="md-nav__link">
+  <a href="#step-3-0-d-fixed-source-solve-per-composition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3. 0-D fixed-source per composition
+        Step 3. 0-D fixed-source solve per composition
       
     </span>
   </a>
@@ -815,10 +817,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-flux-weighted-collapse" class="md-nav__link">
+  <a href="#step-4-flux-weighted-condensation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4. Flux-weighted collapse
+        Step 4. Flux-weighted condensation
       
     </span>
   </a>
@@ -845,7 +847,7 @@
   <a href="#temperature-interpolation-cube-root-of-t" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Temperature interpolation: cube-root of T
+        Temperature interpolation: cube root of \(T\)
       
     </span>
   </a>
@@ -867,6 +869,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../specex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spectrum Expansion (SpecEx)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1204,10 +1234,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-0-d-fixed-source-per-composition" class="md-nav__link">
+  <a href="#step-3-0-d-fixed-source-solve-per-composition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3. 0-D fixed-source per composition
+        Step 3. 0-D fixed-source solve per composition
       
     </span>
   </a>
@@ -1215,10 +1245,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-flux-weighted-collapse" class="md-nav__link">
+  <a href="#step-4-flux-weighted-condensation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4. Flux-weighted collapse
+        Step 4. Flux-weighted condensation
       
     </span>
   </a>
@@ -1245,7 +1275,7 @@
   <a href="#temperature-interpolation-cube-root-of-t" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Temperature interpolation: cube-root of T
+        Temperature interpolation: cube root of \(T\)
       
     </span>
   </a>
@@ -1286,31 +1316,37 @@
 <h1 id="multi-level-hfg-ufg-mg-condensation">Multi-level HFG → UFG → MG condensation<a class="headerlink" href="#multi-level-hfg-ufg-mg-condensation" title="Permanent link">&para;</a></h1>
 <p>For problems where even the UFG solve is too expensive to run <em>everywhere</em> in
 space, UFG-Transport exposes a <strong>multi-level</strong> workflow that uses a
-hyper-fine-group (HFG) library to build a problem-specific weighting spectrum, then
-collapses to a UFG library for the transport solve, and optionally collapses
-further to a standard multi-group (MG) library for downstream codes.</p>
+hyper-fine-group (HFG) library to build a problem-specific weighting spectrum
+per composition, collapses to a UFG library for the transport solve, and
+optionally collapses further to a standard multi-group (MG) library for
+downstream codes.</p>
 <p>The canonical resolution hierarchy is</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>HFG   ~ 24,000 groups   (0-D per composition, Σ_t - Σ_s)φ = χ)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>UFG   ~  2,000 groups   (1-D transport, Sn / Pn / CPM)
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>MG    ~     70 groups   (CASMO-70, UO2, etc. — library output only)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>HFG   ~ 24,000 groups   (0-D per composition, (Σ_t - Σ_s)φ = χ)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>UFG   ~  2,000 groups   (1-D transport, Sn / Pn)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>MG    ~     70 groups   (CASMO-70, library output only)
 </code></pre></div>
-<p>Full execution flow is documented in <code>docs/stage1_hfg_ufg_pipeline.md</code>. This page
-gives the rationale, the equations, and the temperature-interpolation scheme.</p>
 <h2 id="why-a-multi-level-pipeline">Why a multi-level pipeline?<a class="headerlink" href="#why-a-multi-level-pipeline" title="Permanent link">&para;</a></h2>
-<p>Direct UFG transport on a 1-D pin-cell with <span class="arithmatex">\(G = 24{,}000\)</span> groups and <span class="arithmatex">\(S_8\)</span> angular
-order produces matrices several GB in size and iteration counts measured in hours.
-However, <em>within a single composition</em>, the 0-D slowing-down spectrum is already a
-very good estimator of the true spatial flux shape for weighting.</p>
+<p>Direct UFG transport on a 1-D pin-cell with <span class="arithmatex">\(G = 24{,}000\)</span> groups and <span class="arithmatex">\(S_8\)</span>
+angular order produces scatter matrices of several GB and iteration counts
+measured in hours. However, within a single composition the 0-D
+slowing-down spectrum is already a very good estimator of the true spatial
+flux shape used for weighting.</p>
 <p>The multi-level scheme therefore:</p>
 <ol>
 <li>Builds an HFG library per <strong>composition</strong> (not per cell).</li>
-<li>Solves a 0-D fixed-source problem per composition, with a shared fission source.</li>
-<li>Uses the resulting 0-D flux as the weighting spectrum for HFG → UFG collapse.</li>
-<li>Runs the 1-D transport problem at UFG resolution, with the composition-specific
-   UFG library.</li>
+<li>Solves a 0-D fixed-source problem per composition with a shared <span class="arithmatex">\(\chi\)</span>.</li>
+<li>Uses the resulting 0-D flux as the weighting spectrum for HFG → UFG
+   collapse.</li>
+<li>Runs the 1-D transport problem at UFG resolution with the
+   composition-specific UFG library.</li>
 </ol>
-<p>This replaces the naive UFG solve with a cheap 0-D HFG solve plus a much cheaper
-UFG transport solve.</p>
+<p>This replaces the naive full-UFG transport solve with a cheap 0-D HFG solve
+plus a much cheaper UFG transport solve.</p>
+<p>An orthogonal track — <a href="../specex/">Spectrum Expansion</a> — aims to replace the
+HFG → UFG step entirely with a reduced-order basis. The two approaches are
+complementary: the multi-level pipeline is the practical "works today"
+workflow, while SpecEx is the research direction toward an order-of-magnitude
+reduction in degrees of freedom.</p>
 <h2 id="input-format">Input format<a class="headerlink" href="#input-format" title="Permanent link">&para;</a></h2>
 <p>The multi-level input uses nested sub-blocks inside <code>[GroupStructure]</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[GroupStructure]
@@ -1331,66 +1367,96 @@ UFG transport solve.</p>
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>[]
 </code></pre></div>
 <p>When <code>main_1d.cpp</code> detects <code>group_structures.is_multilevel()</code>, it runs the
-HFG → UFG pipeline automatically. Single-level inputs use the legacy direct-load
-path.</p>
+HFG → UFG pipeline automatically. Single-level inputs use the legacy
+direct-load path.</p>
 <h2 id="stage-1-hfg-ufg">Stage 1: HFG → UFG<a class="headerlink" href="#stage-1-hfg-ufg" title="Permanent link">&para;</a></h2>
 <h3 id="step-1-hfg-library-per-composition">Step 1. HFG library per composition<a class="headerlink" href="#step-1-hfg-library-per-composition" title="Permanent link">&para;</a></h3>
 <p>For each composition <span class="arithmatex">\(c\)</span> (fuel, moderator, …), the XS processor builds</p>
 <div class="arithmatex">\[
-\Sigma_{t,c}^{(g)},\quad \Sigma_{a,c}^{(g)},\quad \nu\Sigma_{f,c}^{(g)},\quad
-\Sigma_{s,c}^{(g\to g')},\quad \chi_c^{(g)}
+\Sigma_{t,c}^{(g)},\quad
+\Sigma_{a,c}^{(g)},\quad
+\nu\Sigma_{f,c}^{(g)},\quad
+\Sigma_{s,\ell,c}^{\,g\to g'},\quad
+\chi_c^{(g)}
 \]</div>
-<p>at HFG resolution.</p>
+<p>at HFG resolution. The <a href="../urr_ptable/">URR p-table override</a> and — when
+enabled — the <a href="../resonance_kernel/">O&amp;S resonance kernel</a> both write into
+this HFG library.</p>
 <h3 id="step-2-shared">Step 2. Shared χ<a class="headerlink" href="#step-2-shared" title="Permanent link">&para;</a></h3>
 <p>A single <span class="arithmatex">\(\chi_g\)</span> is chosen from the composition with the largest integrated
-<span class="arithmatex">\(\nu\Sigma_f\)</span> (normally the fuel) and broadcast to all compositions. This avoids
-mismatched fission spectra between zones and makes the 0-D problems comparable.</p>
-<h3 id="step-3-0-d-fixed-source-per-composition">Step 3. 0-D fixed-source per composition<a class="headerlink" href="#step-3-0-d-fixed-source-per-composition" title="Permanent link">&para;</a></h3>
-<p>For each composition, solve</p>
+<span class="arithmatex">\(\nu\Sigma_f\)</span> (normally the fuel) and broadcast to all compositions. This
+avoids mismatched fission spectra between zones and makes the 0-D problems
+directly comparable as weighting calculations.</p>
+<h3 id="step-3-0-d-fixed-source-solve-per-composition">Step 3. 0-D fixed-source solve per composition<a class="headerlink" href="#step-3-0-d-fixed-source-solve-per-composition" title="Permanent link">&para;</a></h3>
+<p>For each composition, solve the 0-D slowing-down balance</p>
 <div class="arithmatex">\[
-\bigl(\Sigma_{t,c}^{(g)} - \Sigma_{s,0,c}^{(g\to g)}\bigr)\phi_c^{(g)}
-\;-\; \sum_{g'\ne g} \Sigma_{s,0,c}^{(g'\to g)}\phi_c^{(g')}
-\;=\; \chi_\text{shared}^{(g)}.
+\bigl(\Sigma_{t,c}^{(g)} - \Sigma_{s,0,c}^{\,g\to g}\bigr)\,\phi_c^{(g)}
+\;-\;
+\sum_{g' \ne g} \Sigma_{s,0,c}^{\,g'\to g}\,\phi_c^{(g')}
+\;=\;
+\chi_\text{shared}^{(g)}.
 \]</div>
-<p>UFG-Transport uses a <strong>symmetric Gauss–Seidel</strong> sweep (forward + backward per
-iteration); at 2000+ groups this converges in ~10 iterations with residual
-<span class="arithmatex">\(\max_g|r_g| &lt; 10^{-10}\)</span>.</p>
-<h3 id="step-4-flux-weighted-collapse">Step 4. Flux-weighted collapse<a class="headerlink" href="#step-4-flux-weighted-collapse" title="Permanent link">&para;</a></h3>
-<p>With the HFG flux <span class="arithmatex">\(\phi_c^{(g)}\)</span> in hand, each UFG group <span class="arithmatex">\(G\)</span> gets</p>
+<p>UFG-Transport uses a <strong>symmetric Gauss–Seidel</strong> sweep (forward + backward
+per iteration); at tens of thousands of groups this converges in ~10–100
+iterations with residual <span class="arithmatex">\(\max_g |r_g| &lt; 10^{-10}\)</span>. Up-scatter is resolved
+by a dedicated thermal inner loop that re-sweeps the up-scatter block until
+it stabilises, same pattern as the 1-D solvers.</p>
+<h3 id="step-4-flux-weighted-condensation">Step 4. Flux-weighted condensation<a class="headerlink" href="#step-4-flux-weighted-condensation" title="Permanent link">&para;</a></h3>
+<p>With the HFG flux <span class="arithmatex">\(\phi_c^{(g)}\)</span> in hand, each UFG group <span class="arithmatex">\(G\)</span> receives</p>
 <div class="arithmatex">\[
-\Sigma_{x,c}^{(G)} \;=\;
-\frac{\displaystyle\sum_{g \in G} \Sigma_{x,c}^{(g)}\,\phi_c^{(g)}\,\Delta u_g}
-     {\displaystyle\sum_{g \in G} \phi_c^{(g)}\,\Delta u_g}.
+\Sigma_{x,c}^{(G)}
+\;=\;
+\frac{\displaystyle \sum_{g \in G} \Sigma_{x,c}^{(g)}\,\phi_c^{(g)}\,\Delta u_g}
+     {\displaystyle \sum_{g \in G} \phi_c^{(g)}\,\Delta u_g},
 \]</div>
-<p>Scattering matrices are collapsed with the <strong>fine-to-coarse map</strong> so that
-<span class="arithmatex">\(\Sigma_{s,c}^{(G\to G')}\)</span> is preserved under the weighted sum. The collapsed
-library is ready for a 1-D transport solve.</p>
+<p>with the lethargy widths <span class="arithmatex">\(\Delta u_g\)</span> ensuring that the weighting is the
+natural lethargy-integrated flux. Scattering matrices are collapsed with the
+<strong>fine-to-coarse map</strong> so that <span class="arithmatex">\(\Sigma_{s,\ell,c}^{\,G\to G'}\)</span> is preserved
+under the weighted sum. Partial fine-group membership at coarse boundaries
+is handled with fractional weights (<code>docs/report_20260305_condenser_fractional_weights.md</code>).</p>
+<p>The collapsed UFG library is then used directly in the 1-D transport solve.</p>
 <h2 id="stage-2-optional-ufg-mg">Stage 2 (optional): UFG → MG<a class="headerlink" href="#stage-2-optional-ufg-mg" title="Permanent link">&para;</a></h2>
-<p>The same flux-weighted collapse, applied with a broader fine-to-coarse map, takes
-the UFG library to a user-specified MG structure. Predefined libraries are
-exposed via <code>include/xs/mg_libraries.hpp</code>; <strong>CASMO-70</strong> is included.</p>
-<p>The MG library is an <em>output</em> of the code — useful for feeding into coarse-group
-lattice codes or for comparison against published benchmarks.</p>
-<h2 id="temperature-interpolation-cube-root-of-t">Temperature interpolation: cube-root of T<a class="headerlink" href="#temperature-interpolation-cube-root-of-t" title="Permanent link">&para;</a></h2>
-<p>Each composition may be assigned a non-tabulated temperature <span class="arithmatex">\(T_\text{target}\)</span>. The
-code finds the bracketing ACE temperatures <span class="arithmatex">\(T_\text{lo} \leq T_\text{target} \leq T_\text{hi}\)</span>
-and interpolates the <em>already-condensed</em> UFG cross sections in
+<p>The same flux-weighted collapse, applied with a broader fine-to-coarse map,
+takes the UFG library to a user-specified MG structure. Predefined libraries
+are exposed via <code>include/xs/mg_libraries.hpp</code>; <strong>CASMO-70</strong> is included out
+of the box, and additional libraries can be registered via
+<code>get_library_boundaries(name)</code>.</p>
+<p>The MG library is an <strong>output</strong> of the code — useful for feeding into
+coarse-group lattice codes or for comparison against published benchmarks.</p>
+<h2 id="temperature-interpolation-cube-root-of-t">Temperature interpolation: cube root of <span class="arithmatex">\(T\)</span><a class="headerlink" href="#temperature-interpolation-cube-root-of-t" title="Permanent link">&para;</a></h2>
+<p>Each composition may be assigned a target temperature <span class="arithmatex">\(T_\text{target}\)</span> that
+is not among the ACE-tabulated temperatures. The code then finds the
+bracketing ACE temperatures <span class="arithmatex">\(T_\text{lo} \leq T_\text{target} \leq T_\text{hi}\)</span>
+and linearly interpolates the <strong>already-condensed</strong> UFG cross sections in
 <span class="arithmatex">\(\tau = T^{1/3}\)</span>:</p>
 <div class="arithmatex">\[
-w \;=\; \frac{T_\text{target}^{1/3} - T_\text{lo}^{1/3}}{T_\text{hi}^{1/3} - T_\text{lo}^{1/3}},
+w \;=\;
+\frac{T_\text{target}^{1/3} - T_\text{lo}^{1/3}}
+     {T_\text{hi}^{1/3} - T_\text{lo}^{1/3}},
 \qquad
-\Sigma_x(T_\text{target}) \;=\; (1 - w)\,\Sigma_x(T_\text{lo}) \;+\; w\,\Sigma_x(T_\text{hi}).
+\Sigma_x(T_\text{target}) \;=\; (1-w)\,\Sigma_x(T_\text{lo}) \;+\; w\,\Sigma_x(T_\text{hi}).
 \]</div>
-<p>The cube-root-of-T variable is a classical NJOY interpolation choice that preserves
-resonance-integral behaviour with limited tabulated temperatures. Interpolation is
-applied to every XS type including scattering matrices.</p>
+<p>The cube-root-of-<span class="arithmatex">\(T\)</span> variable is the classical NJOY interpolation choice:
+Doppler broadening scales with <span class="arithmatex">\(\sqrt{T}\)</span>, and the empirical fit
+<span class="arithmatex">\(\tau = T^{1/3}\)</span> preserves resonance-integral behaviour over the
+reactor-relevant range (<span class="arithmatex">\(\sim 300\)</span> – <span class="arithmatex">\(1500\)</span> K) with only two or three
+tabulated temperatures.</p>
+<p>Interpolation is applied to every XS type, <strong>including all Legendre orders
+of the scattering matrix</strong> (sparse and dense formats are handled
+transparently). Out-of-range temperatures throw rather than extrapolate —
+the user must add a bracketing ACE temperature to the library.</p>
+<p>For the URR p-tables, interpolation across temperature is not yet
+implemented (see <a href="../urr_ptable/">URR p-tables</a>); the p-table at the nearest
+ACE temperature is used, and the downstream cube-root-of-<span class="arithmatex">\(T\)</span> interpolation
+of the resulting UFG cross sections picks up most of the smooth variation.</p>
 <h2 id="cross-references">Cross-references<a class="headerlink" href="#cross-references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>docs/stage1_hfg_ufg_pipeline.md</code> — execution flow, call graph, file map.</li>
-<li><code>docs/report_20260305_condenser_fractional_weights.md</code> — details on partial
-  fine-group membership at coarse boundaries.</li>
-<li><code>include/xs/condenser.hpp</code>, <code>src/xs/condenser.cpp</code> — implementation.</li>
-<li><code>include/xs/temperature_interpolator.hpp</code> — <span class="arithmatex">\(\tau = T^{1/3}\)</span> interpolator.</li>
+<li><code>docs/report_20260305_condenser_fractional_weights.md</code> — partial fine-group
+  membership at coarse boundaries.</li>
+<li><code>include/xs/condenser.hpp</code>, <code>src/xs/condenser.cpp</code> — HFG → UFG driver.</li>
+<li><code>include/xs/temperature_interpolator.hpp</code>,
+  <code>src/xs/temperature_interpolator.cpp</code> — <span class="arithmatex">\(\tau = T^{1/3}\)</span> interpolator.</li>
 <li><code>include/xs/mg_libraries.hpp</code> — predefined MG boundaries.</li>
 </ul>
 

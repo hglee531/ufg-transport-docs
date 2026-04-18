@@ -12,13 +12,13 @@
         <meta name="author" content="Han Gyu Lee">
       
       
-        <link rel="canonical" href="https://hglee531.github.io/ufg-transport-docs/theory/solvers_sn_cyl/">
+        <link rel="canonical" href="https://hglee531.github.io/ufg-transport-docs/theory/resonance_kernel/">
       
       
-        <link rel="prev" href="../solvers_cpm/">
+        <link rel="prev" href="../thermal_scattering/">
       
       
-        <link rel="next" href="../multilevel/">
+        <link rel="next" href="../urr_ptable/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Sn (cylindrical) - UFG-Transport</title>
+        <title>Resonance kernel (O&S) - UFG-Transport</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sn-cylindrical-geometry" class="md-skip">
+        <a href="#resonance-scattering-kernel-ouisloumensanchez" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sn (cylindrical)
+              Resonance kernel (O&S)
             
           </span>
         </div>
@@ -409,6 +409,8 @@
       
         
       
+        
+      
     
     
     
@@ -573,6 +575,192 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resonance kernel (O&S)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resonance kernel (O&S)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-a-doppler-broadened-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why a Doppler-broadened kernel?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-os-formulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The O&amp;S formulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The O&amp;S formulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numerical-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numerical stability
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../urr_ptable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URR p-tables (NR)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
@@ -632,14 +820,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../solvers_cpm/" class="md-nav__link">
+      <a href="../multilevel/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CPM (cylindrical)
+    Multi-level condensation
   
 
     
@@ -648,158 +836,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sn (cylindrical)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sn (cylindrical)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#governing-equation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Governing equation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#angular-discretization-the-recurrence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Angular discretization: the α recurrence
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#carlson-absolute-value-formulation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Carlson absolute-value formulation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sweep-order-and-boundary-conditions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sweep order and boundary conditions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cli-invocation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI invocation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Implementation notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cross-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-references
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -812,14 +848,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../multilevel/" class="md-nav__link">
+      <a href="../specex/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Multi-level condensation
+    Spectrum Expansion (SpecEx)
   
 
     
@@ -1109,10 +1145,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#governing-equation" class="md-nav__link">
+  <a href="#why-a-doppler-broadened-kernel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Governing equation
+        Why a Doppler-broadened kernel?
       
     </span>
   </a>
@@ -1120,10 +1156,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#angular-discretization-the-recurrence" class="md-nav__link">
+  <a href="#the-os-formulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Angular discretization: the α recurrence
+        The O&amp;S formulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The O&amp;S formulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numerical-stability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numerical stability
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
       
     </span>
   </a>
@@ -1131,10 +1195,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#carlson-absolute-value-formulation" class="md-nav__link">
+  <a href="#verification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Carlson absolute-value formulation
+        Verification
       
     </span>
   </a>
@@ -1142,10 +1206,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sweep-order-and-boundary-conditions" class="md-nav__link">
+  <a href="#files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sweep order and boundary conditions
+        Files
       
     </span>
   </a>
@@ -1153,32 +1217,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cli-invocation" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI invocation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Implementation notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cross-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-references
+        References
       
     </span>
   </a>
@@ -1205,95 +1247,174 @@
   
 
 
-<h1 id="sn-cylindrical-geometry">Sn — cylindrical geometry<a class="headerlink" href="#sn-cylindrical-geometry" title="Permanent link">&para;</a></h1>
-<p>In cylindrical geometry the <span class="arithmatex">\(S_N\)</span> streaming operator picks up an <strong>angular
-redistribution term</strong> due to the curvature of the coordinate system: as a neutron
-flies across a pin, its angle relative to the local <span class="arithmatex">\(\hat r\)</span> changes even though
-its direction in space does not. This is the defining complication of 1-D
-cylindrical discrete ordinates.</p>
-<p>UFG-Transport implements cylindrical <span class="arithmatex">\(S_N\)</span> with the classical
-<strong>Carlson angular-diamond-difference</strong> treatment and an <span class="arithmatex">\(\alpha\)</span> recurrence for
-the redistribution term. The full derivation (coordinate system, <span class="arithmatex">\(\alpha\)</span>
-construction, Carlson absolute-value formulation, sweep order) is in
-<code>docs/Sn_1D_Cylindrical.md</code>. This page summarises the essentials.</p>
-<h2 id="governing-equation">Governing equation<a class="headerlink" href="#governing-equation" title="Permanent link">&para;</a></h2>
-<p>For azimuthal symmetry and no axial dependence, with direction cosines
-<span class="arithmatex">\(\xi = \cos\phi_\Omega\)</span> and <span class="arithmatex">\(\eta = \sin\phi_\Omega\)</span> in the transverse plane,
-the steady-state transport equation reads</p>
+<h1 id="resonance-scattering-kernel-ouisloumensanchez">Resonance scattering kernel (Ouisloumen–Sanchez)<a class="headerlink" href="#resonance-scattering-kernel-ouisloumensanchez" title="Permanent link">&para;</a></h1>
+<p>For heavy resonant nuclides, the stationary-target elastic kinematic kernel
+used in the <a href="../ufg_grid/#elastic-two-body-kinematics-stationary-target">UFG scatter matrix</a>
+is not accurate inside resonances: the target nucleus has a thermal
+Maxwell–Boltzmann velocity distribution, and the cross section varies rapidly
+across the thermal energy width of the target. A simple cold kinematic kernel
+can over- or under-predict up-scatter by a factor of several in the first few
+eV above a large resonance, distorting the resonance integral and therefore
+<span class="arithmatex">\(k_\text{eff}\)</span>.</p>
+<p>UFG-Transport implements the <strong>Ouisloumen–Sanchez (O&amp;S) Doppler-broadened
+elastic scattering kernel</strong> (Ouisloumen &amp; Sanchez, <em>Nucl. Sci. Eng.</em>, 1991) for
+heavy nuclides in the resolved resonance range. It produces the same
+Legendre-moment representation as the cold elastic kernel, so the transport
+solver is agnostic to whether a row of the scatter matrix came from cold
+elastic or from the resonance kernel.</p>
+<h2 id="why-a-doppler-broadened-kernel">Why a Doppler-broadened kernel?<a class="headerlink" href="#why-a-doppler-broadened-kernel" title="Permanent link">&para;</a></h2>
+<p>The cold kernel assumes that every scattering event happens off a target at
+rest. In reality, the target speed <span class="arithmatex">\(v_T\)</span> follows a Maxwell–Boltzmann
+distribution</p>
 <div class="arithmatex">\[
-\frac{\xi}{r}\,\frac{\partial}{\partial r}\bigl(r\,\psi\bigr)
-\;-\;
-\frac{1}{r}\,\frac{\partial}{\partial \phi_\Omega}\bigl(\eta\,\psi\bigr)
-\;+\;
-\Sigma_t\,\psi
+P(\mathbf v_T) \;=\;
+\left(\frac{M}{2\pi k_B T}\right)^{3/2}
+\exp\!\left(-\frac{M v_T^2}{2 k_B T}\right),
+\]</div>
+<p>so the <strong>effective</strong> elastic cross section in the lab frame is the incident
+cross section integrated against the relative-speed distribution between
+neutron and target. Inside a narrow resonance, where <span class="arithmatex">\(\sigma(E)\)</span> changes
+appreciably over an energy scale comparable to <span class="arithmatex">\(k_B T \cdot (m / M)\)</span>, this
+integral cannot be replaced by its value at rest.</p>
+<p>For light nuclides (<span class="arithmatex">\(A \lesssim 10\)</span>) the free-gas / <span class="arithmatex">\(S(\alpha,\beta)\)</span>
+thermal kernels already include this effect (they are both derived from the
+same Maxwell–Boltzmann target-motion picture). For heavy nuclides with strong
+resonances — typically the actinides and structural nuclides above
+<span class="arithmatex">\(A \approx 10\)</span> — the dedicated O&amp;S kernel is used instead, over a broader
+energy range than the thermal kernels.</p>
+<h2 id="the-os-formulation">The O&amp;S formulation<a class="headerlink" href="#the-os-formulation" title="Permanent link">&para;</a></h2>
+<p>Let <span class="arithmatex">\(E\)</span> and <span class="arithmatex">\(E'\)</span> be the incident and outgoing neutron energies in the lab
+frame, <span class="arithmatex">\(\mu_L\)</span> the cosine of the lab scattering angle, and <span class="arithmatex">\(T\)</span> the target
+temperature. Introduce the dimensionless variables</p>
+<div class="arithmatex">\[
+x = \sqrt{\frac{A E}{k_B T}},
+\qquad
+x' = \sqrt{\frac{A E'}{k_B T}},
+\]</div>
+<p>and the target-speed parameter <span class="arithmatex">\(t\)</span> (the integration variable). The
+Doppler-broadened double-differential elastic cross section can be written
+(O&amp;S 1991, Eqs. 1–4) as</p>
+<div class="arithmatex">\[
+\sigma_s(E \to E', \mu_L) \;=\;
+\frac{1}{2\pi}\,
+\sum_{n=0}^{\infty}\,(2n+1)\,\sigma_{s,n}(E \to E')\,P_n(\mu_L),
+\]</div>
+<p>with Legendre moments</p>
+<div class="arithmatex">\[
+\sigma_{s,n}(E \to E')
 \;=\;
-q,
+\frac{\sigma_b\,A}{4\,E}\;
+\int_{t_\min}^{t_\max} \sigma_e\!\bigl(E_\text{rel}(t)\bigr)\;
+    \psi_n(t)\,dt.
 \]</div>
-<p>with <span class="arithmatex">\(q = \sum_\ell \frac{2\ell+1}{2}P_\ell(\mu)q_\ell\)</span> the usual angular-moment
-source. The second term on the left is the redistribution: it does not appear in
-slab geometry and couples the discrete directions in the sweep.</p>
-<h2 id="angular-discretization-the-recurrence">Angular discretization: the α recurrence<a class="headerlink" href="#angular-discretization-the-recurrence" title="Permanent link">&para;</a></h2>
-<p>Discrete angles are chosen as a symmetric Gauss–Legendre set <span class="arithmatex">\(\{\xi_n, w_n\}\)</span> and
-the redistribution derivative <span class="arithmatex">\(\partial(\eta\psi)/\partial\phi_\Omega\)</span> is
-discretised by <strong>diamond difference in angle</strong>:</p>
-<div class="arithmatex">\[
-\frac{1}{r}\,\frac{\partial(\eta\,\psi)}{\partial\phi_\Omega}
-\;\approx\;
-\frac{\alpha_{n+1/2}\,\psi_{n+1/2} \;-\; \alpha_{n-1/2}\,\psi_{n-1/2}}{r\,w_n}.
-\]</div>
-<p>The <span class="arithmatex">\(\alpha_{n\pm1/2}\)</span> are determined by the recurrence</p>
-<div class="arithmatex">\[
-\alpha_{n+1/2} \;=\; \alpha_{n-1/2} \;+\; \xi_n\,w_n,\qquad
-\alpha_{1/2} \;=\; 0,
-\]</div>
-<p>which guarantees that a spatially uniform, isotropic flux gives zero net
-redistribution. The angular "half-flux" <span class="arithmatex">\(\psi_{n\pm1/2}\)</span> is tied to the cell
-flux <span class="arithmatex">\(\psi_n\)</span> by the angular diamond-difference relation
-<span class="arithmatex">\(\psi_n = \tfrac12(\psi_{n-1/2} + \psi_{n+1/2})\)</span>.</p>
-<h2 id="carlson-absolute-value-formulation">Carlson absolute-value formulation<a class="headerlink" href="#carlson-absolute-value-formulation" title="Permanent link">&para;</a></h2>
-<p>Inside rings close to <span class="arithmatex">\(r = 0\)</span> the <span class="arithmatex">\(1/r\)</span> coefficient becomes singular, and the
-naive diamond-difference sweep can produce negative angular fluxes. UFG-Transport
-adopts Carlson's <strong>absolute-value formulation</strong>, which rewrites the radial
-streaming operator so that each ring sees a non-negative contribution from its
-neighbours regardless of <span class="arithmatex">\(\xi_n\)</span>'s sign. This is the standard remedy in
-cylindrical <span class="arithmatex">\(S_N\)</span> and is implemented in <code>src/solver/solver_sn_cyl.cpp</code>.</p>
-<h2 id="sweep-order-and-boundary-conditions">Sweep order and boundary conditions<a class="headerlink" href="#sweep-order-and-boundary-conditions" title="Permanent link">&para;</a></h2>
-<p>The sweep proceeds:</p>
-<ol>
-<li><strong>Starting direction</strong> (<span class="arithmatex">\(\xi_n\)</span> most negative) — inward-pointing ray at the
-   outer ring, with outer boundary condition imposing $\psi_{N_r+1/2} = $ BC.</li>
-<li><strong>Inward radial sweep</strong> to <span class="arithmatex">\(r = 0\)</span> with the angular-update substituting
-   <span class="arithmatex">\(\psi_{n+1/2}\)</span> from the previous angular index.</li>
-<li><strong>Angular reflection</strong> at <span class="arithmatex">\(\xi_n = 0\)</span>: the inward rays rotate to outward rays
-   through the symmetric (<span class="arithmatex">\(r=0\)</span>) boundary.</li>
-<li><strong>Outward radial sweep</strong> back to the outer ring.</li>
-</ol>
-<p>Supported boundary conditions:</p>
+<p>Here <span class="arithmatex">\(\sigma_e\)</span> is the point-wise elastic cross section of the nuclide, the
+function <span class="arithmatex">\(E_\text{rel}(t)\)</span> is the relative-velocity kinematic map for a given
+target speed parameter <span class="arithmatex">\(t\)</span>, and <span class="arithmatex">\(\psi_n(t)\)</span> are the <strong>Legendre transfer
+functions</strong>, evaluated by (O&amp;S Eqs. A.1–A.2 for <span class="arithmatex">\(n = 0, 1\)</span>; Eqs. A.3–A.5 for
+<span class="arithmatex">\(n \geq 2\)</span>):</p>
 <ul>
-<li><strong>Inner</strong> (<span class="arithmatex">\(r=0\)</span>) — reflective by symmetry (implicit).</li>
-<li><strong>Outer</strong> — reflective, vacuum, or white. White is the typical Wigner–Seitz BC.</li>
+<li><strong><span class="arithmatex">\(\psi_0(t)\)</span></strong> — available analytically, reduces to a difference of
+  complementary error functions (<code>stable_erf_diff</code> in the code).</li>
+<li><strong><span class="arithmatex">\(\psi_1(t)\)</span></strong> — also analytic (O&amp;S Eq. A.2).</li>
+<li><strong><span class="arithmatex">\(\psi_n(t)\)</span> for <span class="arithmatex">\(n \geq 2\)</span></strong> — an inner azimuthal integral <span class="arithmatex">\(Q_n(x,t)\)</span>
+  followed by an outer integral over a normalised speed variable. Both are
+  done numerically by Gauss–Legendre quadrature.</li>
 </ul>
-<h2 id="cli-invocation">CLI invocation<a class="headerlink" href="#cli-invocation" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./ufg_1d_app<span class="w"> </span>pwr_pincell_multilevel_sn.i<span class="w"> </span>--solver<span class="w"> </span>sn<span class="w"> </span>--sn-order<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">                                        </span>--output-dir<span class="w"> </span>../output/pincell_sn
-</code></pre></div>
-<p>Orders <span class="arithmatex">\(S_2, S_4, S_8, S_{16}\)</span> are all validated; higher orders are permitted but
-diminishing returns set in past <span class="arithmatex">\(S_{16}\)</span> in the pin-cell demonstrations.</p>
-<h2 id="implementation-notes">Implementation notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
-<p>The cylindrical <span class="arithmatex">\(S_N\)</span> solver went through several iterations in the project
-history to resolve numerical instabilities near <span class="arithmatex">\(r=0\)</span> and at ring interfaces.
-Relevant design notes live in:</p>
+<p>The integration limits <span class="arithmatex">\(t_\min, t_\max\)</span> are chosen so that <span class="arithmatex">\(E_\text{rel}(t)\)</span>
+stays inside the kinematically allowed window
+<span class="arithmatex">\([(\sqrt{E}-\sqrt{E'})^2,\,(\sqrt{E}+\sqrt{E'})^2]\cdot\tfrac{A}{k_B T}\)</span>.</p>
+<h3 id="numerical-stability">Numerical stability<a class="headerlink" href="#numerical-stability" title="Permanent link">&para;</a></h3>
+<p>Naïve evaluation of <span class="arithmatex">\(\psi_n\)</span> loses precision at large <span class="arithmatex">\(x\)</span> (i.e. <span class="arithmatex">\(E \gg k_B T\)</span>).
+UFG-Transport uses:</p>
 <ul>
-<li><code>docs/sn_cylindrical_formulation_summary.md</code> — compact summary and the final
-  algorithm.</li>
-<li><code>docs/report_cylindrical_sn_investigation.md</code>,
-  <code>docs/report_cylindrical_sn_diagnosis.md</code> — instability diagnosis and fix.</li>
-<li><code>docs/solver_sn_cyl_code_flow.md</code> — walkthrough of the implementation.</li>
+<li>a <strong>fused <code>erfcx</code> evaluation</strong> for <span class="arithmatex">\(\psi_0,\psi_1\)</span> to avoid overflow when the
+  Gaussian factors are tiny;</li>
+<li><strong>tail truncation</strong> of the <span class="arithmatex">\(t\)</span>-integral at a user-specified number of
+  standard deviations;</li>
+<li>quadrature orders that scale with <span class="arithmatex">\(n\)</span>: default 32 GL points for the outer
+  <span class="arithmatex">\(t\)</span>-integral and 16 GL points for the azimuthal <span class="arithmatex">\(\phi\)</span>-integral in
+  <span class="arithmatex">\(Q_n(x,t)\)</span>, which converged to machine precision in the closure tests.</li>
 </ul>
-<h2 id="cross-references">Cross-references<a class="headerlink" href="#cross-references" title="Permanent link">&para;</a></h2>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>The O&amp;S kernel is opt-in via the <code>XsProcessorConfig</code> struct
+(<code>include/xs/xs_processor.hpp</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>use_resonance_kernel</code></td>
+<td><code>false</code></td>
+<td>master switch</td>
+</tr>
+<tr>
+<td><code>resonance_cutoff_ev</code></td>
+<td>1000 eV</td>
+<td>upper energy for O&amp;S</td>
+</tr>
+<tr>
+<td><code>resonance_A_min</code></td>
+<td>10</td>
+<td>minimum AWR; lighter nuclides use free-gas/<span class="arithmatex">\(S(\alpha,\beta)\)</span></td>
+</tr>
+<tr>
+<td><code>resonance_quad_t</code></td>
+<td>32</td>
+<td>GL points for the target-speed integral</td>
+</tr>
+<tr>
+<td><code>resonance_quad_phi</code></td>
+<td>16</td>
+<td>GL points for the azimuthal integral (<span class="arithmatex">\(n \geq 2\)</span>)</td>
+</tr>
+</tbody>
+</table>
+<p>When enabled, the kernel replaces the cold-elastic contribution for each
+nuclide with <span class="arithmatex">\(A \geq A_\min\)</span> below <code>resonance_cutoff_ev</code>. Above the cutoff,
+the cold kernel is used; below the thermal cutoff, the free-gas or
+<span class="arithmatex">\(S(\alpha,\beta)\)</span> kernels take over, exactly as in the default three-regime
+layout.</p>
+<h2 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">&para;</a></h2>
+<p>The implementation was verified against an independent reference
+Doppler-broadened elastic cross section on U-238 in the resolved resonance
+range. The original investigation is documented in
+<code>coldcase/closed/resonance_kernel_closure.md</code>, which captures the final
+kernel shape and the closed defect list. Briefly:</p>
 <ul>
-<li><code>docs/Sn_1D_Cylindrical.md</code> — full derivation.</li>
-<li><code>src/solver/solver_sn_cyl.cpp</code> — implementation.</li>
+<li>the Legendre moments <span class="arithmatex">\(\sigma_{s,n}(E \to E')\)</span> match reference values to
+  better than <span class="arithmatex">\(10^{-6}\)</span> relative error at the converged quadrature
+  (<code>resonance_quad_t = 32</code>, <code>resonance_quad_phi = 16</code>);</li>
+<li>the resonance-integrated elastic cross section on U-238 at 600 K
+  reproduces the NJOY <code>broadr</code>-produced Doppler-broadened value to the level
+  expected from the UFG grid spacing;</li>
+<li>integration cost is approximately an order of magnitude above cold elastic
+  per incident energy, which is acceptable because the kernel only runs
+  inside the resonance energy range and only for nuclides with <span class="arithmatex">\(A \geq 10\)</span>.</li>
+</ul>
+<h2 id="files">Files<a class="headerlink" href="#files" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>include/xs/resonance_kernel.hpp</code> — interface, <span class="arithmatex">\(\psi_n\)</span> / <span class="arithmatex">\(Q_n\)</span> declarations.</li>
+<li><code>src/xs/resonance_kernel.cpp</code> — analytic <span class="arithmatex">\(\psi_0, \psi_1\)</span>; numerical
+  <span class="arithmatex">\(\psi_{n\geq 2}\)</span> via Gauss–Legendre quadrature.</li>
+<li><code>include/xs/xs_processor.hpp</code> — configuration fields.</li>
+<li><code>coldcase/closed/resonance_kernel_closure.md</code> — closure report (2026-03-29).</li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li>M. Ouisloumen and R. Sanchez, <em>A model for neutron scattering off heavy
+  nuclei which accounts for the resonance structure</em>,
+  <em>Nuclear Science and Engineering</em>, <strong>107</strong>, 189–200 (1991).</li>
+<li>W. Rothenstein, <em>Neutron scattering kernels in pronounced resonances for
+  stochastic Doppler effect calculations</em>, <em>Annals of Nuclear Energy</em>, <strong>23</strong>,
+  441–458 (1996) — alternative reference for the same kernel.</li>
+<li>R. E. MacFarlane, <em>NJOY: The Nuclear Data Processing System</em>
+  (LA-UR-17-20093), BROADR module — baseline against which the O&amp;S kernel is
+  cross-checked.</li>
 </ul>
 
 

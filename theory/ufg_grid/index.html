@@ -409,6 +409,8 @@
       
         
       
+        
+      
     
     
     
@@ -653,10 +655,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#elastic-two-body-kinematics" class="md-nav__link">
+  <a href="#elastic-two-body-kinematics-stationary-target" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Elastic two-body kinematics
+        Elastic two-body kinematics (stationary target)
       
     </span>
   </a>
@@ -675,10 +677,21 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#continuum-inelastic-and-n-xn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Continuum inelastic and (n, xn)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#fission" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fission
+        Fission χ
       
     </span>
   </a>
@@ -702,10 +715,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#references-within-the-repo" class="md-nav__link">
+  <a href="#references-inside-the-repo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        References within the repo
+        References inside the repo
       
     </span>
   </a>
@@ -736,6 +749,62 @@
     
   
     Thermal scattering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resonance_kernel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resonance kernel (O&S)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../urr_ptable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URR p-tables (NR)
   
 
     
@@ -812,62 +881,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../solvers_cpm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CPM (cylindrical)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../solvers_sn_cyl/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sn (cylindrical)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../multilevel/" class="md-nav__link">
         
   
@@ -876,6 +889,34 @@
     
   
     Multi-level condensation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../specex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spectrum Expansion (SpecEx)
   
 
     
@@ -1238,10 +1279,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#elastic-two-body-kinematics" class="md-nav__link">
+  <a href="#elastic-two-body-kinematics-stationary-target" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Elastic two-body kinematics
+        Elastic two-body kinematics (stationary target)
       
     </span>
   </a>
@@ -1260,10 +1301,21 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#continuum-inelastic-and-n-xn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Continuum inelastic and (n, xn)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#fission" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fission
+        Fission χ
       
     </span>
   </a>
@@ -1287,10 +1339,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#references-within-the-repo" class="md-nav__link">
+  <a href="#references-inside-the-repo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        References within the repo
+        References inside the repo
       
     </span>
   </a>
@@ -1318,24 +1370,30 @@
 
 
 <h1 id="ufg-grid-group-averaging-and-scattering-matrices">UFG grid, group averaging, and scattering matrices<a class="headerlink" href="#ufg-grid-group-averaging-and-scattering-matrices" title="Permanent link">&para;</a></h1>
-<p>This page covers the mechanics of going from <strong>point-wise cross sections</strong> to the
-<strong>UFG library</strong> that the transport solvers consume: the group structure, the weighted
-integration, the Legendre-expanded scattering matrix, and how to keep the whole thing
-tractable for tens of thousands of groups.</p>
-<p>See <code>REPORT_ANGULAR_MOMENTS_AND_SCATTERING_MATRIX.md</code> for the full derivation of how
-angular distributions are stored in OpenMC HDF5 and turned into Legendre moments.</p>
+<p>This page covers the mechanics of going from <strong>point-wise cross sections</strong> to
+the <strong>UFG library</strong> that the transport solvers consume: the group structure,
+the weighted integration, the Legendre-expanded scattering matrix, and how to
+keep the whole thing tractable for tens of thousands of groups.</p>
+<p>Two companion pages cover the specialised kernels that write into the same
+library:</p>
+<ul>
+<li><a href="../resonance_kernel/">Resonance scattering kernel</a> — the O&amp;S Doppler-broadened
+  elastic kernel for heavy nuclides.</li>
+<li><a href="../urr_ptable/">URR p-tables</a> — narrow-resonance sampling in the unresolved
+  region.</li>
+</ul>
 <h2 id="group-structure">Group structure<a class="headerlink" href="#group-structure" title="Permanent link">&para;</a></h2>
 <p>UFG-Transport supports two group-structure modes.</p>
 <h3 id="uniform-lethargy">Uniform lethargy<a class="headerlink" href="#uniform-lethargy" title="Permanent link">&para;</a></h3>
-<p>Given <code>num_groups</code> <span class="arithmatex">\(G\)</span>, top energy <span class="arithmatex">\(E_\text{max}\)</span>, and bottom energy <span class="arithmatex">\(E_\text{min}\)</span>,
-the group boundaries are</p>
+<p>Given a group count <span class="arithmatex">\(G\)</span>, a top energy <span class="arithmatex">\(E_\text{max}\)</span>, and a bottom energy
+<span class="arithmatex">\(E_\text{min}\)</span>, the group boundaries are</p>
 <div class="arithmatex">\[
 u_g \;=\; u_0 + g\,\Delta u, \qquad
-\Delta u \;=\; \frac{\ln(E_\text{max}/E_\text{min})}{G},
-\qquad E_g \;=\; E_\text{max}\,e^{-g\,\Delta u}.
+\Delta u \;=\; \frac{\ln(E_\text{max}/E_\text{min})}{G}, \qquad
+E_g \;=\; E_\text{max}\,e^{-g\,\Delta u}.
 \]</div>
-<p>Lethargy spacing is natural for the slowing-down region, where the 1/<em>E</em> weighting
-spectrum is itself uniform in lethargy.</p>
+<p>Uniform lethargy is natural for the slowing-down region, where the <span class="arithmatex">\(1/E\)</span>
+weighting spectrum is flat in lethargy.</p>
 <h3 id="coarse-partitioned">Coarse-partitioned<a class="headerlink" href="#coarse-partitioned" title="Permanent link">&para;</a></h3>
 <p>The user declares coarse energy bins and a per-bin fine-group count:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[GroupStructure]
@@ -1343,88 +1401,113 @@ spectrum is itself uniform in lethargy.</p>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  energy_groups = &#39;200 1500 200 100&#39;
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>[]
 </code></pre></div>
-<p>Each coarse bin is subdivided uniformly in lethargy. This gives the flexibility to
-put many groups in the slowing-down region, fewer in the fast and thermal tails, and
-to align boundaries with thermal-scattering cut-offs.</p>
+<p>Each coarse bin is subdivided uniformly in lethargy. This lets the user put
+many groups in the slowing-down region, fewer in the fast and thermal tails,
+and align boundaries with thermal-scattering cut-offs, fission thresholds, or
+upscatter boundaries.</p>
 <h2 id="group-averaged-cross-sections">Group-averaged cross sections<a class="headerlink" href="#group-averaged-cross-sections" title="Permanent link">&para;</a></h2>
-<p>For a reaction <span class="arithmatex">\(x\)</span> on nuclide <span class="arithmatex">\(i\)</span>, the group-averaged microscopic cross section is</p>
+<p>For a reaction <span class="arithmatex">\(x\)</span> on nuclide <span class="arithmatex">\(i\)</span>, the group-averaged microscopic cross section
+over group <span class="arithmatex">\(g\)</span> (with boundaries <span class="arithmatex">\(E_g &lt; E_{g-1}\)</span>) is</p>
 <div class="arithmatex">\[
-\sigma_{x,i}^{(g)} \;=\; \frac{\displaystyle\int_{E_g}^{E_{g-1}} \sigma_{x,i}(E)\,\phi_w(E)\,dE}
-                              {\displaystyle\int_{E_g}^{E_{g-1}} \phi_w(E)\,dE}
+\sigma_{x,i}^{(g)}
+\;=\;
+\frac{\displaystyle \int_{E_g}^{E_{g-1}} \sigma_{x,i}(E)\,\phi_w(E)\,dE}
+     {\displaystyle \int_{E_g}^{E_{g-1}} \phi_w(E)\,dE},
 \]</div>
 <p>with a user-chosen weighting spectrum <span class="arithmatex">\(\phi_w(E)\)</span>. UFG-Transport defaults to
-<span class="arithmatex">\(\phi_w \propto 1/E\)</span> (flat in lethargy) but also supports a flat-in-energy weighting.</p>
-<p>Integration is trapezoidal on the <strong>union</strong> of the ACE point-wise grid and the UFG
-boundaries: each pointwise interval is split at the containing group boundary, so no
-group ever sees a cross section that interpolates <em>across</em> its edge.</p>
-<p>Macroscopic cross sections for a homogeneous region <span class="arithmatex">\(k\)</span> with atom densities
-<span class="arithmatex">\(N_i^{(k)}\)</span> are assembled by the homogenizer:</p>
+<span class="arithmatex">\(\phi_w(E) \propto 1/E\)</span> (flat in lethargy); flat-in-energy is also available
+via <code>use_1_over_E = false</code>.</p>
+<p>Integration is trapezoidal on the <strong>union</strong> of the ACE point-wise grid and the
+UFG boundaries: each point-wise interval is split at the containing group
+boundary, so no group ever sees a cross section that interpolates <em>across</em> its
+edge.</p>
+<p>Macroscopic region-level cross sections are assembled by the homogenizer,</p>
 <div class="arithmatex">\[
-\Sigma_x^{(k,g)} \;=\; \sum_i N_i^{(k)}\,\sigma_{x,i}^{(g)}.
+\Sigma_x^{(g)} \;=\; \sum_k v_k\,\sum_i N_i^{(k)}\,\sigma_{x,i}^{(g)},
 \]</div>
-<p>Material-to-region homogenisation with volume fractions <span class="arithmatex">\(v_k\)</span> gives</p>
-<div class="arithmatex">\[
-\Sigma_x^{(g)} \;=\; \sum_k v_k\,\Sigma_x^{(k,g)}.
-\]</div>
+<p>where the <span class="arithmatex">\(v_k\)</span> are region volume fractions and <span class="arithmatex">\(N_i^{(k)}\)</span> are per-composition
+atom densities.</p>
 <h2 id="the-scattering-transfer-matrix">The scattering transfer matrix<a class="headerlink" href="#the-scattering-transfer-matrix" title="Permanent link">&para;</a></h2>
-<p>The quantity the solvers actually need is
-<span class="arithmatex">\(\Sigma_{s,\ell}^{(g\to g')}\)</span>: the cross section for a neutron in group <span class="arithmatex">\(g\)</span> to
-scatter into group <span class="arithmatex">\(g'\)</span> with Legendre anisotropy order <span class="arithmatex">\(\ell\)</span>.</p>
-<h3 id="legendre-expansion">Legendre expansion<a class="headerlink" href="#legendre-expansion" title="Permanent link">&para;</a></h3>
-<p>For a given incident energy <span class="arithmatex">\(E\)</span>, the differential scattering cross section is
-expanded in Legendre polynomials in the scattering cosine <span class="arithmatex">\(\mu\)</span>:</p>
+<p>The quantity the solvers actually need is the <strong>Legendre-expanded transfer
+matrix</strong></p>
 <div class="arithmatex">\[
-\sigma_s(E,\mu) \;=\; \sum_{\ell=0}^{L}\,
-   \frac{2\ell + 1}{2}\,\sigma_{s,\ell}(E)\,P_\ell(\mu),
-\qquad
-\sigma_{s,\ell}(E) \;=\; \int_{-1}^{1} \sigma_s(E,\mu)\,P_\ell(\mu)\,d\mu.
+\Sigma_{s,\ell}^{\,g \to g'} \;=\; \int_{E_{g}}^{E_{g-1}}\!\!\int_{E_{g'}}^{E_{g'-1}}
+  \Sigma_{s,\ell}(E \to E')\,\phi_w(E)\,dE\,dE' \;\Big/\;
+  \int_{E_{g}}^{E_{g-1}} \phi_w(E)\,dE,
 \]</div>
-<p>The Legendre moments <span class="arithmatex">\(\sigma_{s,\ell}(E)\)</span> are computed directly from the OpenMC
-tabulated <span class="arithmatex">\((\mu,\,\text{PDF})\)</span> distributions.</p>
-<h3 id="elastic-two-body-kinematics">Elastic two-body kinematics<a class="headerlink" href="#elastic-two-body-kinematics" title="Permanent link">&para;</a></h3>
+<p>for <span class="arithmatex">\(\ell = 0,\ldots,L\)</span>.</p>
+<h3 id="legendre-expansion">Legendre expansion<a class="headerlink" href="#legendre-expansion" title="Permanent link">&para;</a></h3>
+<p>The differential scattering cross section at fixed incident energy <span class="arithmatex">\(E\)</span> is
+expanded in Legendre polynomials of the scattering cosine <span class="arithmatex">\(\mu\)</span>,</p>
+<div class="arithmatex">\[
+\frac{d\sigma_s}{d\mu}(E,\mu)
+\;=\;
+\sum_{\ell=0}^{L}\,\frac{2\ell+1}{2}\,\sigma_{s,\ell}(E)\,P_\ell(\mu),
+\qquad
+\sigma_{s,\ell}(E) \;=\; \int_{-1}^{1}\!\frac{d\sigma_s}{d\mu}(E,\mu)\,P_\ell(\mu)\,d\mu.
+\]</div>
+<p>The Legendre moments <span class="arithmatex">\(\sigma_{s,\ell}(E)\)</span> are computed directly from the
+OpenMC-tabulated <span class="arithmatex">\((\mu,\mathrm{PDF})\)</span> distributions; no assumption of
+isotropy-in-CM is baked into the grid averaging.</p>
+<h3 id="elastic-two-body-kinematics-stationary-target">Elastic two-body kinematics (stationary target)<a class="headerlink" href="#elastic-two-body-kinematics-stationary-target" title="Permanent link">&para;</a></h3>
 <p>For two-body elastic scattering on a stationary target of mass ratio <span class="arithmatex">\(A\)</span>, the
-outgoing lab energy is
-$$
+outgoing lab energy is a function of the cosine <span class="arithmatex">\(\mu_\text{cm}\)</span> of the scattering
+angle in the centre-of-mass frame,</p>
+<div class="arithmatex">\[
 E' \;=\; E\,\frac{A^2 + 2A\mu_\text{cm} + 1}{(A+1)^2}.
-$$
-For each incident energy on the union grid, UFG-Transport quadratures over
-<span class="arithmatex">\(\mu_\text{cm}\)</span>; each sample contributes to a specific group-to-group transfer.</p>
+\]</div>
+<p>For each incident energy on the union grid, the XS processor quadratures over
+<span class="arithmatex">\(\mu_\text{cm}\)</span>; each sample contributes to the transfer matrix element with
+the Legendre factor <span class="arithmatex">\(P_\ell(\mu_\text{lab}(\mu_\text{cm}))\)</span>.</p>
+<p>This "cold" kinematic kernel is accurate above ~1 keV. Below that, thermal
+motion of the target becomes significant (see
+<a href="../thermal_scattering/">thermal scattering</a>), and for heavy nuclides with
+strong resonances, the O&amp;S Doppler-broadened kernel replaces it up to
+<code>resonance_cutoff_ev</code> (default 1 keV); see
+<a href="../resonance_kernel/">resonance kernel</a>.</p>
 <h3 id="discrete-level-inelastic">Discrete-level inelastic<a class="headerlink" href="#discrete-level-inelastic" title="Permanent link">&para;</a></h3>
-<p>For MT 51–90 (discrete inelastic levels), the outgoing CM energy at threshold <span class="arithmatex">\(Q&lt;0\)</span> is
-$$
-E'_\text{cm} \;=\; \frac{A}{A+1}\bigl(E - |Q|\bigr),
-$$
-leading to a narrow transfer band that lands in a small number of groups per incident
-energy. MT 91 (continuum inelastic) uses the stored continuous energy–angle
-distribution.</p>
-<h3 id="fission">Fission<a class="headerlink" href="#fission" title="Permanent link">&para;</a></h3>
-<p>Fission χ is built by integrating the published secondary-energy distribution
-(Maxwell, Watt, or tabular) over each outgoing group:</p>
+<p>For an inelastic level with Q-value <span class="arithmatex">\(Q &lt; 0\)</span> (MT 51 – 90), the reaction has a
+threshold at <span class="arithmatex">\(E_\text{th} = |Q|(A+1)/A\)</span>. Above threshold, the centre-of-mass
+outgoing energy is</p>
+<div class="arithmatex">\[
+E'_\text{cm} \;=\; \frac{A}{A+1}\bigl(E - E_\text{th}\bigr),
+\]</div>
+<p>which lands in a narrow transfer band in lab frame that touches only a handful
+of outgoing groups per incident energy.</p>
+<h3 id="continuum-inelastic-and-n-xn">Continuum inelastic and (n, xn)<a class="headerlink" href="#continuum-inelastic-and-n-xn" title="Permanent link">&para;</a></h3>
+<p>MT 91 (continuum inelastic) and (n, 2n), (n, 3n), … use the tabulated
+secondary-energy distributions from ACE. These contribute to <span class="arithmatex">\(\ell = 0\)</span> only
+in the current implementation (isotropic CM emission); they feed directly into
+<span class="arithmatex">\(\Sigma_{s,0}^{\,g\to g'}\)</span>.</p>
+<h3 id="fission">Fission χ<a class="headerlink" href="#fission" title="Permanent link">&para;</a></h3>
+<p>The fission emission spectrum is built by integrating the published secondary-
+energy distribution (Maxwell, Watt, or tabular) over each outgoing group,</p>
 <div class="arithmatex">\[
 \chi_g \;=\; \int_{E_g}^{E_{g-1}} \chi(E')\,dE'.
 \]</div>
 <h2 id="storage-dense-vs-sparse">Storage: dense vs sparse<a class="headerlink" href="#storage-dense-vs-sparse" title="Permanent link">&para;</a></h2>
-<p>For <span class="arithmatex">\(G = 24{,}000\)</span> and <span class="arithmatex">\(L = 0\)</span>, a dense matrix <span class="arithmatex">\(\Sigma_{s,\ell}^{(g\to g')}\)</span> is
-<span class="arithmatex">\(24{,}000 \times 24{,}000\)</span> doubles — 4.6 GB. For the defaults the project uses
-(thousands of groups, <span class="arithmatex">\(L = 0\)</span>, highly diagonal thermal and slowing-down transfers),
-UFG-Transport switches to a <strong>sparse banded-row</strong> storage when <span class="arithmatex">\(G \geq 5000\)</span>:</p>
+<p>For <span class="arithmatex">\(G = 24{,}000\)</span> and <span class="arithmatex">\(\ell = 0\)</span>, a dense matrix <span class="arithmatex">\(\Sigma_{s,\ell}^{\,g \to g'}\)</span>
+is <span class="arithmatex">\(24{,}000 \times 24{,}000\)</span> doubles — 4.6 GB. For typical UFG configurations
+(thousands of groups, <span class="arithmatex">\(L = 0\)</span>, highly diagonal thermal and slowing-down
+transfers), UFG-Transport switches to a <strong>sparse banded-row</strong> storage once
+<span class="arithmatex">\(G \geq 5000\)</span>:</p>
 <ul>
-<li>each row <span class="arithmatex">\(g\)</span> stores only the non-zero <span class="arithmatex">\(g'\)</span> entries above a configurable threshold
-  (<code>scatter_threshold = 1e-6</code> by default);</li>
-<li>thermal up-scatter bands near <span class="arithmatex">\(E \lesssim E_\text{thermal}\)</span> are retained exactly;</li>
-<li>1-D solvers receive <strong>dense</strong> <code>RegionXS</code> — the sparse matrix is densified at the
-  solver boundary, so the sparse/dense choice is invisible to the transport loop.</li>
+<li>each row <span class="arithmatex">\(g\)</span> stores only the non-zero <span class="arithmatex">\(g'\)</span> entries above a configurable
+  threshold (<code>scatter_threshold = 1e-6</code> by default);</li>
+<li>thermal up-scatter bands are retained exactly — the thresholding only trims
+  numerical tails;</li>
+<li>the 1-D solvers always see a <strong>dense <code>RegionXS</code></strong>; the sparse matrix is
+  densified at the solver boundary, so the sparse/dense choice is invisible to
+  the transport loop.</li>
 </ul>
-<p>The recommended UFG configuration is <span class="arithmatex">\(P_0\)</span> scattering, threshold <span class="arithmatex">\(10^{-6}\)</span>, and
-<span class="arithmatex">\(G \approx 24{,}000\)</span>.</p>
-<h2 id="references-within-the-repo">References within the repo<a class="headerlink" href="#references-within-the-repo" title="Permanent link">&para;</a></h2>
+<p>The recommended UFG configuration is <span class="arithmatex">\(P_0\)</span> scattering, threshold <span class="arithmatex">\(10^{-6}\)</span>,
+and <span class="arithmatex">\(G \approx 24{,}000\)</span>.</p>
+<h2 id="references-inside-the-repo">References inside the repo<a class="headerlink" href="#references-inside-the-repo" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>src/xs/xs_processor.cpp</code> — the group-averaging and Legendre-moment loops.</li>
+<li><code>src/xs/xs_processor.cpp</code> — group-averaging and Legendre-moment loops.</li>
 <li><code>src/xs/homogenizer.cpp</code> — multi-nuclide macroscopic assembly.</li>
 <li><code>src/xs/scatter_matrix.cpp</code> — sparse banded storage.</li>
 <li><code>include/xs/ufg_grid.hpp</code> — group-structure construction.</li>
-<li><code>REPORT_ANGULAR_MOMENTS_AND_SCATTERING_MATRIX.md</code> — full discussion of how OpenMC
-  stores angular data and how the Legendre integrals are evaluated.</li>
 </ul>
 
 

@@ -12,13 +12,13 @@
         <meta name="author" content="Han Gyu Lee">
       
       
-        <link rel="canonical" href="https://hglee531.github.io/ufg-transport-docs/theory/overview/">
+        <link rel="canonical" href="https://hglee531.github.io/ufg-transport-docs/theory/specex/">
       
       
-        <link rel="prev" href="../..">
+        <link rel="prev" href="../multilevel/">
       
       
-        <link rel="next" href="../ace_and_hdf5/">
+        <link rel="next" href="../../guide/install/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Overview - UFG-Transport</title>
+        <title>Spectrum Expansion (SpecEx) - UFG-Transport</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pipeline-overview" class="md-skip">
+        <a href="#spectrum-expansion-specex-rse" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Spectrum Expansion (SpecEx)
             
           </span>
         </div>
@@ -250,7 +250,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../overview/" class="md-tabs__link">
           
   
   
@@ -463,37 +463,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
         
   
   
@@ -509,109 +482,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#why-ultra-fine-groups" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why ultra-fine groups?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-three-stages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The three stages
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The three stages">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-ace-parsing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. ACE parsing
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-ufg-cross-section-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. UFG cross-section processing
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-transport-solve" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Transport solve
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-formats" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data formats
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-this-code-is-not-yet" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What this code is not (yet)
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -845,10 +715,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../specex/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spectrum Expansion (SpecEx)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -864,6 +761,203 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation-why-a-reduced-order-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motivation — why a reduced-order method?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-end-to-end-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The end-to-end pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-spectrum-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 — Spectrum generation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-pod-basis-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 — POD basis extraction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2 — POD basis extraction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snapshot-matrix-and-energy-weighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot matrix and energy weighting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wlra-weighted-low-rank-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WLRA — weighted low-rank approximation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-cross-section-moments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3 — Cross-section moments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3 — Cross-section moments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#total-xs-moments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Total XS moments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scattering-moments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scattering moments
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-online-transport-solve-planned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4 — online transport solve (planned)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-specex-is-expected-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What SpecEx is expected to do
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1145,10 +1239,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-ultra-fine-groups" class="md-nav__link">
+  <a href="#motivation-why-a-reduced-order-method" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why ultra-fine groups?
+        Motivation — why a reduced-order method?
       
     </span>
   </a>
@@ -1156,22 +1250,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-three-stages" class="md-nav__link">
+  <a href="#the-end-to-end-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The three stages
+        The end-to-end pipeline
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The three stages">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-spectrum-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 — Spectrum generation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-pod-basis-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 — POD basis extraction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2 — POD basis extraction">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-ace-parsing" class="md-nav__link">
+  <a href="#snapshot-matrix-and-energy-weighting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. ACE parsing
+        Snapshot matrix and energy weighting
       
     </span>
   </a>
@@ -1179,10 +1295,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-ufg-cross-section-processing" class="md-nav__link">
+  <a href="#block-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. UFG cross-section processing
+        Block structure
       
     </span>
   </a>
@@ -1190,10 +1306,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-transport-solve" class="md-nav__link">
+  <a href="#wlra-weighted-low-rank-approximation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Transport solve
+        WLRA — weighted low-rank approximation
       
     </span>
   </a>
@@ -1206,10 +1322,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-formats" class="md-nav__link">
+  <a href="#phase-3-cross-section-moments" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data formats
+        Phase 3 — Cross-section moments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3 — Cross-section moments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#total-xs-moments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Total XS moments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scattering-moments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scattering moments
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-online-transport-solve-planned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4 — online transport solve (planned)
       
     </span>
   </a>
@@ -1217,10 +1372,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-this-code-is-not-yet" class="md-nav__link">
+  <a href="#what-specex-is-expected-to-do" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What this code is not (yet)
+        What SpecEx is expected to do
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
       
     </span>
   </a>
@@ -1247,120 +1435,278 @@
   
 
 
-<h1 id="pipeline-overview">Pipeline overview<a class="headerlink" href="#pipeline-overview" title="Permanent link">&para;</a></h1>
-<p>UFG-Transport takes <strong>point-wise (ACE) nuclear data</strong> and turns it into a <strong>solved
-transport equation</strong> by passing through an <em>ultra-fine-group</em> (UFG) representation
-of the cross sections — instead of a broad-group multigroup library with heavy
-self-shielding corrections.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>   ACE / OpenMC HDF5       UFG library                Transport solution
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ┌───────────────────┐   ┌────────────────────┐    ┌──────────────────────┐
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  │  σ(E) pointwise,  │   │  Σ_x,g, Σ_s,g→g&#39;,  │    │  φ(r, g) from        │
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  │  angular dists,   │ → │  χ_g, Legendre     │ →  │  slab Sn / slab Pn;  │
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  │  thermal S(α,β),  │   │  moments ℓ = 0..L  │    │  optional HFG → UFG  │
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  │  URR p-tables     │   │  + resonance kernel│    │  → MG collapse       │
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  └───────────────────┘   └────────────────────┘    └──────────────────────┘
+<h1 id="spectrum-expansion-specex-rse">Spectrum Expansion (SpecEx / RSE)<a class="headerlink" href="#spectrum-expansion-specex-rse" title="Permanent link">&para;</a></h1>
+<p><strong>Spectrum Expansion (SpecEx)</strong> — internally called RSE, for <em>Resonance
+Spectrum Expansion</em> — is an orthogonal research track inside UFG-Transport
+that aims to replace the entire resonance self-shielding stack (Bondarenko,
+subgroup, HFG condensation, …) with a <strong>reduced-order</strong> model built from
+proper orthogonal decomposition (POD) of UFG flux spectra.</p>
+<p>The current status is a partial, offline library-generation implementation.
+The final on-line transport solve (Phase 4) is not yet coded. This page
+describes what SpecEx is, why it is worth exploring, what the code does
+today, and what it is expected to do once complete.</p>
+<p>The method follows Lee &amp; Kim, <em>Direct Incorporation of Up-Scattering Sources
+in the Resonance Spectrum Expansion (RSE) Method</em>, <em>Annals of Nuclear
+Energy</em> (2026).</p>
+<h2 id="motivation-why-a-reduced-order-method">Motivation — why a reduced-order method?<a class="headerlink" href="#motivation-why-a-reduced-order-method" title="Permanent link">&para;</a></h2>
+<p>The UFG library is already a good trade: it sidesteps most of the
+self-shielding machinery at the cost of carrying <span class="arithmatex">\(G \sim 10^4\)</span> groups through
+the transport solve. Two pressure points remain:</p>
+<ol>
+<li><strong>Up-scatter coupling at UFG resolution.</strong> The thermal up-scatter block
+   couples every pair of groups inside the Maxwellian region. At
+   <span class="arithmatex">\(G \sim 2 \times 10^4\)</span>, that block alone has <span class="arithmatex">\(\sim 10^6\)</span> non-zero entries
+   per composition per temperature. Iterating on the full UFG scatter matrix
+   under a geometry search (burnup, temperature feedback) is expensive.</li>
+<li><strong>Self-shielding still needs flux-weighted collapse.</strong> The HFG → UFG
+   condensation step requires a 0-D solve per composition before transport,
+   which becomes the dominant cost at <span class="arithmatex">\(G = 24{,}000\)</span>.</li>
+</ol>
+<p>The SpecEx observation is that UFG flux spectra, across wide sweeps of
+composition, temperature, and background dilution, live on a <strong>low-
+dimensional manifold</strong>. A typical LWR analysis needs ~95 POD basis functions
+to span that manifold to the <span class="arithmatex">\(10^{-3}\)</span> collision-rate error level — two
+orders of magnitude fewer degrees of freedom than the UFG grid.</p>
+<p>If a transport solve can be expressed in the POD basis directly, then:</p>
+<ul>
+<li>the scattering transfer from <span class="arithmatex">\(10^4 \times 10^4\)</span> groups collapses to a
+  <span class="arithmatex">\(\sim 10^2 \times 10^2\)</span> matrix of <strong>cross-section moments</strong>;</li>
+<li>up-scatter couplings come for free in the same small matrix;</li>
+<li>the library built once offline is reused across all on-line geometry /
+  burnup / temperature queries.</li>
+</ul>
+<h2 id="the-end-to-end-pipeline">The end-to-end pipeline<a class="headerlink" href="#the-end-to-end-pipeline" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>                        OFFLINE (library generation)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ┌──────────────────────────────────────────────────────────────────┐
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  │   Phase 1            Phase 2            Phase 3                  │
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  │   Spectrum           POD / Basis        XS Moment                │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  │   generation   ───►  extraction   ───►  generation               │
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  │   (10k+ 0-D          (SVD per block,    (σ_{x,kl} per nuclide/T) │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  │    sweep)             WLRA rank sel.)                            │
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  │                                                                  │
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  │   spectra.h5         basis.h5            specex_library.h5       │
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  └──────────────────────────────────────────────────────────────────┘
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                        ONLINE (transport solve)
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  ┌──────────────────────────────────────────────────────────────────┐
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>  │   Phase 4 (future)                                               │
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>  │   Load library → solve reduced SpecEx FSP for φ_k expansion     │
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>  │   → reconstruct effective MG / UFG flux → feed solver            │
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  └──────────────────────────────────────────────────────────────────┘
 </code></pre></div>
-<h2 id="why-ultra-fine-groups">Why ultra-fine groups?<a class="headerlink" href="#why-ultra-fine-groups" title="Permanent link">&para;</a></h2>
-<p>Broad-group multigroup libraries (tens to hundreds of groups) rely on heavy
-<strong>resonance self-shielding</strong> approximations — Bondarenko tables, equivalence
-theory, subgroup methods — to preserve effective reaction rates inside
-resonances. At the cost of memory and compute, UFG libraries bypass most of that
-machinery:</p>
-<ul>
-<li>Several thousand groups narrow the within-group spectral variation so that a
-  simple <span class="arithmatex">\(1/E\)</span> or flat-in-energy weighting is adequate.</li>
-<li>Resonance peaks in the <strong>resolved resonance region</strong> are resolved directly on
-  the group grid, so self-shielding is largely automatic.</li>
-<li>Group-to-group transfer matrices — including thermal up-scatter — become the
-  primary data structure; everything else is read-only.</li>
-</ul>
-<p>For the <strong>unresolved resonance region (URR)</strong> and for <strong>Doppler-broadened elastic
-scattering</strong> at reactor temperatures, the grid alone is not enough: the
-group-averaged cross section still depends on the (unknown) local flux through
-statistical resonances, and the simple stationary-target kinematic kernel
-over-estimates up-scatter in resonances. UFG-Transport adds two targeted models
-on top of the UFG machinery:</p>
-<ul>
-<li><strong>Narrow-resonance p-table sampling</strong> in the URR
-  (<a href="../urr_ptable/">URR p-tables</a>).</li>
-<li><strong>Ouisloumen–Sanchez (O&amp;S) resonance scattering kernel</strong> for heavy nuclides
-  (<a href="../resonance_kernel/">Resonance kernel</a>).</li>
-</ul>
-<p>Both models write into the same UFG library; the transport solver never sees
-them directly.</p>
-<h2 id="the-three-stages">The three stages<a class="headerlink" href="#the-three-stages" title="Permanent link">&para;</a></h2>
-<h3 id="1-ace-parsing">1. ACE parsing<a class="headerlink" href="#1-ace-parsing" title="Permanent link">&para;</a></h3>
-<p>The <a href="../ace_and_hdf5/">ACE reader</a> opens OpenMC-style HDF5 cross-section files
-and extracts, for each nuclide and each tabulated temperature:</p>
-<ul>
-<li>the unionised energy grid and point-wise reaction cross sections
-  (total, elastic, inelastic levels, fission, capture, …);</li>
-<li>Legendre-coefficient or tabular angular distributions;</li>
-<li>fission <span class="arithmatex">\(\chi\)</span> distributions (Maxwell, Watt, tabular);</li>
-<li>unresolved-resonance probability tables (ENDF MF 2, LRU = 2);</li>
-<li>thermal <span class="arithmatex">\(S(\alpha,\beta)\)</span> kernels (incoherent / coherent).</li>
-</ul>
-<h3 id="2-ufg-cross-section-processing">2. UFG cross-section processing<a class="headerlink" href="#2-ufg-cross-section-processing" title="Permanent link">&para;</a></h3>
-<p>The <a href="../ufg_grid/">UFG grid builder</a> defines group boundaries by uniform lethargy
-or by a coarse-partitioned lethargy structure. The XS processor then produces,
-for each nuclide at each tabulated temperature, a complete UFG library:</p>
-<ul>
-<li>principal reactions <span class="arithmatex">\(\sigma_{t,g},\,\sigma_{a,g},\,\sigma_{f,g},\,\nu\sigma_{f,g}\)</span>;</li>
-<li>Legendre-expanded scattering moments <span class="arithmatex">\(\sigma_{s,\ell}^{g\to g'}\)</span> from two-body
-  cold-elastic kinematics, discrete-level inelastic, and continuum inelastic;</li>
-<li>thermal scattering from the <a href="../thermal_scattering/">three-regime model</a>: cold
-  elastic → free-gas → <span class="arithmatex">\(S(\alpha,\beta)\)</span>;</li>
-<li>optional Doppler-broadened resonance elastic via the
-  <a href="../resonance_kernel/">O&amp;S kernel</a>;</li>
-<li>URR-sampled principal cross sections via
-  <a href="../urr_ptable/">NR p-tables</a>;</li>
-<li>fission <span class="arithmatex">\(\chi_g\)</span> by integrating the published secondary-energy distribution.</li>
-</ul>
-<p>Cross-temperature interpolation is linear in <span class="arithmatex">\(\tau = T^{1/3}\)</span>; see
-<a href="../multilevel/#temperature-interpolation">multi-level condensation</a>.</p>
-<p>Mixtures are produced by the homogenizer,</p>
+<h2 id="phase-1-spectrum-generation">Phase 1 — Spectrum generation<a class="headerlink" href="#phase-1-spectrum-generation" title="Permanent link">&para;</a></h2>
+<p>A parametric sweep generates 0-D flux spectra across a Cartesian product of
+conditions:</p>
+<table>
+<thead>
+<tr>
+<th>Axis</th>
+<th>Typical range</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fuel composition</td>
+<td>fresh UO₂, depleted UO₂, Gd-bearing UO₂, MOX</td>
+<td>nuclide vector richness</td>
+</tr>
+<tr>
+<td>Fuel temperature</td>
+<td>600 / 900 / 1200 / 1500 K</td>
+<td>Doppler broadening</td>
+</tr>
+<tr>
+<td>Moderator temperature</td>
+<td>500 / 600 K</td>
+<td>thermal spectrum shift</td>
+</tr>
+<tr>
+<td>Moderator density</td>
+<td>0.66 / 0.71 / 0.76 g/cm³</td>
+<td>void / density feedback</td>
+</tr>
+<tr>
+<td>Background <span class="arithmatex">\(\sigma_0\)</span></td>
+<td><span class="arithmatex">\(10,\,50,\,100,\,500,\,10^4\)</span> barn</td>
+<td>self-shielding strength</td>
+</tr>
+</tbody>
+</table>
+<p>The background is injected as a <strong>flat-in-energy absorber</strong> with
+<span class="arithmatex">\(\sigma_t = \sigma_0\)</span> and <span class="arithmatex">\(N = 1\,\text{atom/barn-cm}\)</span>, the standard technique
+for sweeping self-shielding strength in a homogeneous medium. Target library
+size is 10 000+ spectra at UFG resolution.</p>
+<p>Each sweep point reuses the existing 0-D pipeline: <code>XsProcessor::process()</code>
+→ <code>mix()</code> → <code>compute_source_spectrum()</code> → <code>solve_fixed_source()</code>. Microscopic
+cross sections are cached per <code>(nuclide, T)</code> pair; only <code>mix()</code> and the
+solve run per condition.</p>
+<p>The output <code>spectra.h5</code> contains the <span class="arithmatex">\(N \times G\)</span> snapshot matrix plus
+metadata: energy boundaries, <span class="arithmatex">\(\Delta E_g\)</span>, the reference U-238 <span class="arithmatex">\(\sigma_a(g)\)</span>
+vector used as the WLRA weight, and a condition-metadata table.</p>
+<h2 id="phase-2-pod-basis-extraction">Phase 2 — POD basis extraction<a class="headerlink" href="#phase-2-pod-basis-extraction" title="Permanent link">&para;</a></h2>
+<h3 id="snapshot-matrix-and-energy-weighting">Snapshot matrix and energy weighting<a class="headerlink" href="#snapshot-matrix-and-energy-weighting" title="Permanent link">&para;</a></h3>
+<p>Assemble the snapshot matrix</p>
 <div class="arithmatex">\[
-\Sigma_x^{(g)} \;=\; \sum_k v_k \sum_i N_i^{(k)} \,\sigma_{x,i}^{(g)},
+\mathbf{A} \;=\;
+\begin{bmatrix} \boldsymbol{\varphi}_1 &amp; \boldsymbol{\varphi}_2 &amp; \cdots &amp; \boldsymbol{\varphi}_N \end{bmatrix}^{\!\top},
+\qquad \mathbf{A} \in \mathbb{R}^{N \times G}.
 \]</div>
-<p>where <span class="arithmatex">\(k\)</span> indexes compositions with volume fractions <span class="arithmatex">\(v_k\)</span> and <span class="arithmatex">\(N_i^{(k)}\)</span> are
-atom densities.</p>
-<h3 id="3-transport-solve">3. Transport solve<a class="headerlink" href="#3-transport-solve" title="Permanent link">&para;</a></h3>
-<p>UFG-Transport currently supports two <strong>verified</strong> 1-D deterministic solvers:</p>
+<p>Each column is normalised to unit energy-integral so that absolute flux
+amplitude does not pollute the SVD. To force the POD basis to be
+orthonormal under the continuous <span class="arithmatex">\(L^2\)</span> inner product, every column <span class="arithmatex">\(g\)</span> is
+multiplied by <span class="arithmatex">\(\sqrt{\Delta E_g}\)</span> before the SVD, and the resulting basis
+vectors are divided back by the same factor:</p>
+<div class="arithmatex">\[
+\tilde{A}_{i,g} \;=\; \sqrt{\Delta E_g}\,\hat{\varphi}_{i}(g),
+\qquad
+\int b_k(E)\,b_l(E)\,dE \;=\; \delta_{kl}.
+\]</div>
+<h3 id="block-structure">Block structure<a class="headerlink" href="#block-structure" title="Permanent link">&para;</a></h3>
+<p>The full UFG range is partitioned into ~13 coarse <strong>energy blocks</strong>. An
+SVD is run independently inside each block. The reasoning: within a block
+the flux shapes are more coherent, so a small number of basis functions is
+enough; across blocks the shapes are decoupled by the resonance structure,
+so mixing them in one SVD would waste singular values. Empirically a
+p-refinement (more basis per block) is more effective than an h-refinement
+(more blocks) for the same total rank.</p>
+<h3 id="wlra-weighted-low-rank-approximation">WLRA — weighted low-rank approximation<a class="headerlink" href="#wlra-weighted-low-rank-approximation" title="Permanent link">&para;</a></h3>
+<p>The plain rank-truncation SVD minimises <span class="arithmatex">\(\|\mathbf{A} - \mathbf{A}_m\|_F\)</span> —
+the spectral approximation error. What the downstream solver actually cares
+about is the <strong>collision-rate error</strong>,</p>
+<div class="arithmatex">\[
+\varepsilon_R \;=\;
+\frac{\bigl\| \mathbf{W}(\mathbf{A} - \mathbf{A}_m) \bigr\|_F}
+     {\bigl\| \mathbf{W}\mathbf{A}\bigr\|_F},
+\qquad
+\mathbf{W} \;=\; \operatorname{diag}\bigl(\sigma_a^{\text{U-238}}(g,\,T_\text{ref})\bigr).
+\]</div>
+<p>The <strong>weighted low-rank approximation (WLRA)</strong> solves</p>
+<div class="arithmatex">\[
+\min \bigl\|\mathbf{W}(\mathbf{A} - \mathbf{A}_m)\bigr\|_F^2
+\]</div>
+<p>via a projected gradient descent</p>
+<div class="arithmatex">\[
+\mathbf{A}_m^{(i+1)}
+\;=\; \mathcal{P}_m\!\left[
+  \mathbf{A}_m^{(i)} - t\,\mathbf{W}^{\!\top}\mathbf{W}\bigl(\mathbf{A}_m^{(i)} - \mathbf{A}\bigr)
+\right],
+\]</div>
+<p>where <span class="arithmatex">\(\mathcal{P}_m\)</span> is rank-<span class="arithmatex">\(m\)</span> truncation (a plain SVD), <span class="arithmatex">\(t\)</span> is a learning
+rate, and the rank <span class="arithmatex">\(m\)</span> is incremented until <span class="arithmatex">\(\varepsilon_R\)</span> drops below a
+user-specified threshold (typically 1 %). U-238 <span class="arithmatex">\(\sigma_a\)</span> is a physically
+motivated weight: it emphasises the epithermal resonance region, where most
+of the self-shielding error lives.</p>
+<p>Typical result: <strong>~95 basis functions total</strong>, distributed across 13 blocks
+with 5–12 basis per block. Compare with <span class="arithmatex">\(G = 24{,}000\)</span> UFG groups — a 250×
+reduction in the number of spectral degrees of freedom.</p>
+<p>Linear-algebra backend: Eigen 3 (<code>BDCSVD</code>) on the CPU by default;
+cuSOLVER <code>gesvdj</code> on the GPU when CUDA is available.</p>
+<h2 id="phase-3-cross-section-moments">Phase 3 — Cross-section moments<a class="headerlink" href="#phase-3-cross-section-moments" title="Permanent link">&para;</a></h2>
+<p>For each nuclide and each temperature, the SpecEx library stores small
+moment matrices obtained by projecting the point-wise cross sections onto
+the basis:</p>
+<h3 id="total-xs-moments">Total XS moments<a class="headerlink" href="#total-xs-moments" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\sigma_{t,kl}(T)
+\;=\;
+\int \sigma_t(E,T)\,b_k(E)\,b_l(E)\,dE
+\;\approx\;
+\sum_g \sigma_t(g,T)\,b_k(g)\,b_l(g)\,\Delta E_g.
+\]</div>
+<h3 id="scattering-moments">Scattering moments<a class="headerlink" href="#scattering-moments" title="Permanent link">&para;</a></h3>
+<p>A direct double-sum over the <span class="arithmatex">\(G \times G\)</span> scatter matrix is <span class="arithmatex">\(O(G^2 K^2)\)</span> and
+too expensive at UFG resolution. The computation is factored into two
+<span class="arithmatex">\(O(G K)\)</span> passes:</p>
+<div class="arithmatex">\[
+S_k(E',T) \;=\; \int \sigma_s(E \to E', T)\,b_k(E)\,dE,
+\qquad
+\sigma_{s,kl}(T) \;=\; \int S_k(E',T)\,b_l(E')\,dE'.
+\]</div>
+<p>For ~95 basis functions, the final library has on the order of <span class="arithmatex">\(10^3\)</span> – <span class="arithmatex">\(10^4\)</span>
+non-zero moment-matrix entries per nuclide per temperature — compared with
+<span class="arithmatex">\(\sim 10^9\)</span> entries in a full UFG scatter matrix.</p>
+<p>The output <code>specex_library.h5</code> stores <span class="arithmatex">\(\sigma_{t,kl},\,\sigma_{s,kl},\,
+\sigma_{f,kl},\,\chi_k\)</span> per nuclide per temperature, along with the basis
+and energy-block metadata.</p>
+<h2 id="phase-4-online-transport-solve-planned">Phase 4 — online transport solve (planned)<a class="headerlink" href="#phase-4-online-transport-solve-planned" title="Permanent link">&para;</a></h2>
+<p>The on-line transport solver — the step that would turn SpecEx into a usable
+replacement for the multi-group / UFG solve — is the next research item.
+The sketch is:</p>
+<ol>
+<li>Expand the unknown flux in the basis:
+   <span class="arithmatex">\(\varphi(E,\vec r) \approx \sum_k \phi_k(\vec r)\,b_k(E)\)</span>.</li>
+<li>Project the transport equation onto each basis function <span class="arithmatex">\(b_l\)</span>.</li>
+<li>The streaming term retains its usual spatial discretisation; the
+   collision term becomes <span class="arithmatex">\(\sum_k \Sigma_{t,kl}(\vec r)\,\phi_k(\vec r)\)</span>; the
+   scattering source becomes <span class="arithmatex">\(\sum_k \Sigma_{s,kl}(\vec r)\,\phi_k(\vec r)\)</span>.</li>
+<li>Solve a small <span class="arithmatex">\(K \times K\)</span> per-cell system coupled across space.</li>
+</ol>
+<p>The effective multi-group flux for any downstream consumer (MG library,
+depletion, OpenMC comparison) is recovered by evaluating
+<span class="arithmatex">\(\varphi(E_g) = \sum_k \phi_k\,b_k(E_g)\)</span> — no separate MG library is needed.</p>
+<h2 id="what-specex-is-expected-to-do">What SpecEx is expected to do<a class="headerlink" href="#what-specex-is-expected-to-do" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong><a href="../solvers_sn/">slab <span class="arithmatex">\(S_N\)</span></a></strong> — diamond-difference spatial discretisation,
-  Gauss–Legendre angular quadrature, anisotropic scattering to arbitrary
-  Legendre order;</li>
-<li><strong><a href="../solvers_pn/">slab <span class="arithmatex">\(P_N\)</span></a></strong> — cell-centred finite difference with block
-  Thomas, <span class="arithmatex">\(P_1\)</span> through <span class="arithmatex">\(P_7\)</span>, Marshak vacuum boundaries.</li>
+<li>Replace HFG → UFG condensation with a single offline basis build.</li>
+<li>Deliver UFG-level accuracy at roughly MG-level solve cost.</li>
+<li>Handle up-scatter coupling natively through the <span class="arithmatex">\(\sigma_{s,kl}\)</span> moments
+  — no special thermal-inner loop needed.</li>
+<li>Serve as a research platform for reduced-order methods in reactor
+  physics: basis adaptivity, cross-temperature extrapolation, and
+  on-the-fly basis updates during depletion are all natural extensions.</li>
 </ul>
-<p>For problems where even the UFG solve is too expensive to run everywhere, the
-<a href="../multilevel/">multi-level pipeline</a> first solves a <strong>hyperfine-group (HFG)</strong>
-problem in 0-D per composition, uses the resulting flux to collapse to a UFG
-library, and only then runs 1-D transport. A further UFG → MG collapse produces
-a broad-group library (e.g. CASMO-70) for downstream consumers.</p>
-<p>An orthogonal research track, <a href="../specex/">Spectrum Expansion (SpecEx)</a>, is
-developing a reduced-order replacement for the entire resonance self-shielding
-stack.</p>
-<h2 id="data-formats">Data formats<a class="headerlink" href="#data-formats" title="Permanent link">&para;</a></h2>
+<h2 id="current-status">Current status<a class="headerlink" href="#current-status" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Role</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Batch spectrum generation</td>
+<td>implemented (<code>specex_sweep_app</code>)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>POD / basis extraction (SVD + WLRA)</td>
+<td>implemented (<code>specex_pod_app</code>)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>XS moment generation</td>
+<td>implemented (<code>specex_moments_app</code>)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>On-line reduced-order transport solve</td>
+<td><strong>not yet implemented</strong></td>
+</tr>
+</tbody>
+</table>
+<p>See the <a href="../../#status">status section on the home page</a> for the full
+picture of how SpecEx sits next to the rest of the code.</p>
+<h2 id="files">Files<a class="headerlink" href="#files" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Input</strong>: <a href="../../guide/running/">HIT</a> (hierarchical input text) — nested
-  <code>[block] … []</code> sections of <code>key = value</code> pairs.</li>
-<li><strong>Cross sections</strong>: OpenMC <code>cross_sections.xml</code> + per-nuclide HDF5 files.</li>
-<li><strong>Output</strong>: CSV files written under <code>output/&lt;run-name&gt;/</code>, plus logged
-  quantities (region-averaged flux, Legendre moments, condensed MG XS).</li>
+<li><code>include/specex/specex_sweep.hpp</code>, <code>src/specex/…</code> — Phase 1.</li>
+<li><code>include/specex/specex_pod.hpp</code>, <code>src/specex/specex_pod.cpp</code>,
+  <code>src/specex/specex_pod_input.cpp</code>, <code>src/main_specex_pod.cpp</code> — Phase 2.</li>
+<li><code>include/specex/specex_moments.hpp</code> — Phase 3 interface.</li>
+<li><code>coldcase/rse_blueprint.md</code> — full design document, including the sweep
+  axes, the WLRA derivation, and the Phase 4 skeleton.</li>
 </ul>
-<h2 id="what-this-code-is-not-yet">What this code is not (yet)<a class="headerlink" href="#what-this-code-is-not-yet" title="Permanent link">&para;</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Not a <span class="arithmatex">\(k\)</span>-effective eigenvalue code. Only fixed-source problems are solved;
-  power iteration is on the roadmap.</li>
-<li>Not a 2-D / 3-D code. Geometry is infinite, slab, or (for 0-D and for the
-  SpecEx sweep) homogeneous mixtures.</li>
-<li>Not a production lattice code. It is a research implementation focused on
-  making the UFG-plus-resonance-kernel workflow first-class, and on exploring
-  the SpecEx reduced-order idea.</li>
+<li>H. G. Lee and K. S. Kim, <em>Direct Incorporation of Up-Scattering Sources in
+  the Resonance Spectrum Expansion (RSE) Method</em>, <em>Annals of Nuclear Energy</em>,
+  2026.</li>
+<li>K. S. Kim and M. L. Williams, <em>Resonance Spectrum Expansion Method in
+  Deterministic Transport Calculations</em>, <em>Nuclear Science and Engineering</em>
+  (historical foundation for the method).</li>
 </ul>
-<p>See the <a href="../../#status">status section on the home page</a> for the concrete
-list of what is implemented, what is disabled, and what is in flight.</p>
 
 
 

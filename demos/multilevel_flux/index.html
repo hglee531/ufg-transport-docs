@@ -405,6 +405,8 @@
       
         
       
+        
+      
     
     
     
@@ -569,6 +571,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../../theory/resonance_kernel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resonance kernel (O&S)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/urr_ptable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URR p-tables (NR)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../theory/solvers_sn/" class="md-nav__link">
         
   
@@ -625,62 +683,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../theory/solvers_cpm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CPM (cylindrical)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../theory/solvers_sn_cyl/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sn (cylindrical)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../theory/multilevel/" class="md-nav__link">
         
   
@@ -689,6 +691,34 @@
     
   
     Multi-level condensation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/specex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spectrum Expansion (SpecEx)
   
 
     
@@ -1206,21 +1236,23 @@ Thermal-region zoom of the same parameter study. The Maxwellian peak position
 and width are robust to the numerical-integration choices.
 ///</p>
 <h2 id="reproducing-these-figures">Reproducing these figures<a class="headerlink" href="#reproducing-these-figures" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># HFG + UFG + MG pincell with Pn</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>./build/Release/ufg_1d_app<span class="w"> </span>examples/pwr_pincell_multilevel_pn.i<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">                           </span>--output-dir<span class="w"> </span>output/pincell_multilevel_pn
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># HFG + UFG + MG pincell with CPM (cylindrical)</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>./build/Release/ufg_1d_app<span class="w"> </span>examples/pwr_pincell_multilevel_cpm.i<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">                           </span>--output-dir<span class="w"> </span>output/pincell_multilevel_cpm
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>python<span class="w"> </span>scripts/plot_flux_spectra.py<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">       </span>output/pincell_multilevel_pn<span class="w"> </span>output/pincell_multilevel_cpm<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">       </span>-o<span class="w"> </span>plots/multilevel.png
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># 0-D UO2 + H2O</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>./build/Release/ufg_0d_app<span class="w"> </span>examples/uo2_mixed.i
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>python<span class="w"> </span>scripts/plot_0d_flux.py<span class="w"> </span>uo2_mixed_flux.csv
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># HFG + UFG + MG pincell with Sn</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>./build/Release/ufg_1d_app<span class="w"> </span>examples/pwr_pincell_multilevel_sn.i<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">                           </span>--solver<span class="w"> </span>sn<span class="w"> </span>--sn-order<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">                           </span>--output-dir<span class="w"> </span>output/pincell_multilevel_sn
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># HFG + UFG + MG pincell with Pn</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>./build/Release/ufg_1d_app<span class="w"> </span>examples/pwr_pincell_multilevel_pn.i<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">                           </span>--solver<span class="w"> </span>pn<span class="w"> </span>--pn-order<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">                           </span>--output-dir<span class="w"> </span>output/pincell_multilevel_pn
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>python<span class="w"> </span>scripts/plot_flux_spectra.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">       </span>output/pincell_multilevel_sn<span class="w"> </span>output/pincell_multilevel_pn<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">       </span>-o<span class="w"> </span>plots/multilevel.png
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># 0-D UO2 + H2O</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>./build/Release/ufg_0d_app<span class="w"> </span>examples/uo2_mixed.i
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>python<span class="w"> </span>scripts/plot_0d_flux.py<span class="w"> </span>uo2_mixed_flux.csv
 </code></pre></div>
 <p>The plotting scripts and the normalisation protocol are covered in the
 <a href="../../guide/running/">running guide</a>.</p>
