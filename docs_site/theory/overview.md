@@ -104,7 +104,7 @@ problem in 0-D per composition, uses the resulting flux to collapse to a UFG
 library, and only then runs 1-D transport. A further UFG → MG collapse produces
 a broad-group library (e.g. CASMO-70) for downstream consumers.
 
-An orthogonal research track, [Spectrum Expansion (SpecEx)](specex.md), is
+An orthogonal research track, [Spectrum Expansion (SpecEx)](../specex/index.md), is
 developing a reduced-order replacement for the entire resonance self-shielding
 stack.
 

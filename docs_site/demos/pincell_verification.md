@@ -28,7 +28,7 @@ square lattice pitch 1.26 cm).
     [status section](../index.md#status) for details. The slab $S_N$ / $P_N$
     pair is the trusted comparison path today.
 
-## Slab $S_N$ vs OpenMC
+## Slab Sn vs OpenMC
 
 ![Sn S2 flux vs OpenMC](../assets/images/pincell_sn_S2_vs_openmc.png)
 /// caption
@@ -48,7 +48,7 @@ subgroup correction — the resonances are resolved directly by the HFG grid
 and then flux-collapsed to UFG.
 ///
 
-## Slab $S_N$ vs slab $P_N$ — cross-solver sanity check
+## Slab Sn vs slab Pn — cross-solver sanity check
 
 The two verified solvers are cross-checked against each other on the same
 problem:

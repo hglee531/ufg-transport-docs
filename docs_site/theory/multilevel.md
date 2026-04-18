@@ -35,7 +35,7 @@ The multi-level scheme therefore:
 This replaces the naive full-UFG transport solve with a cheap 0-D HFG solve
 plus a much cheaper UFG transport solve.
 
-An orthogonal track — [Spectrum Expansion](specex.md) — aims to replace the
+An orthogonal track — [Spectrum Expansion](../specex/index.md) — aims to replace the
 HFG → UFG step entirely with a reduced-order basis. The two approaches are
 complementary: the multi-level pipeline is the practical "works today"
 workflow, while SpecEx is the research direction toward an order-of-magnitude
@@ -141,7 +141,7 @@ of the box, and additional libraries can be registered via
 The MG library is an **output** of the code — useful for feeding into
 coarse-group lattice codes or for comparison against published benchmarks.
 
-## Temperature interpolation: cube root of $T$
+## Temperature interpolation: cube root of T
 
 Each composition may be assigned a target temperature $T_\text{target}$ that
 is not among the ACE-tabulated temperatures. The code then finds the

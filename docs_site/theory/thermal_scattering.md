@@ -32,7 +32,7 @@ in the **resonance** energy range ($\lesssim 1$ keV, $A \gtrsim 10$) and can
 also substitute for the cold-elastic treatment there when enabled; it is
 independent of the free-gas / $S(\alpha,\beta)$ machinery.
 
-## The bound-atom cross section $\sigma_b$
+## The bound-atom cross section (σ_b)
 
 The free-gas and $S(\alpha,\beta)$ formalisms normalise by the **bound-atom**
 cross section
@@ -122,7 +122,7 @@ $$
 is used for nuclides whose HDF5 file is missing the `kTs/<temp>K` dataset
 (which historically affected some H-1 and O-16 evaluations).
 
-## $S(\alpha,\beta)$ for bound scatterers
+## S(α,β) for bound scatterers
 
 For bound nuclides the incoherent inelastic contribution is
 

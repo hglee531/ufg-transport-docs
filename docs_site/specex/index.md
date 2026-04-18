@@ -101,7 +101,7 @@ Assemble the snapshot matrix
 
 $$
 \mathbf{A} \;=\;
-\begin{bmatrix} \boldsymbol{\varphi}_1 & \boldsymbol{\varphi}_2 & \cdots & \boldsymbol{\varphi}_N \end{bmatrix}^{\!\top},
+\begin{bmatrix} \mathbf{\varphi}_1 & \mathbf{\varphi}_2 & \cdots & \mathbf{\varphi}_N \end{bmatrix}^{\!\top},
 \qquad \mathbf{A} \in \mathbb{R}^{N \times G}.
 $$
 

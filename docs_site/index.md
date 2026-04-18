@@ -56,7 +56,7 @@ linear Boltzmann equation and standard multi-group reactor-physics methods.
     derivations, the [resonance kernel](theory/resonance_kernel.md), the
     [URR p-table method](theory/urr_ptable.md), the
     [multi-level pipeline](theory/multilevel.md), or the
-    [SpecEx reduced-order method](theory/specex.md).
+    The [SpecEx reduced-order method](specex/index.md) has its own section.
 
 -   :material-console: **Build and run**
 
@@ -116,7 +116,7 @@ which are partial, and which are disabled.
 | SpecEx Phase 3 (XS moments) | $\sigma_{t,kl}$, $\sigma_{s,kl}$ per nuclide/T |
 
 The on-line SpecEx transport solve (Phase 4) is not yet implemented. See the
-[SpecEx page](theory/specex.md) for the full plan.
+[SpecEx section](specex/index.md) for the full plan.
 
 ### Disabled or not yet implemented
 
