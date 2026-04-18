@@ -1,121 +1,177 @@
 # Thermal scattering
 
-Below the slowing-down region, the classical two-body scattering kernel breaks down:
-the target nucleus is no longer stationary, and in moderators it is no longer even
-free — it is bound into a molecule or crystal lattice. UFG-Transport treats this
-regime with a **three-regime model** that cleanly covers the full energy range.
+Below the slowing-down region, the stationary-target kinematic kernel breaks
+down: the target nucleus is no longer at rest, and in moderators it is not even
+free — it is bound into a molecule or a crystal lattice. UFG-Transport treats
+this regime with a **three-regime model** that covers the full energy range.
 
 ## The three regimes
 
 ```
-    E > 1 keV              ←  cold elastic, stationary target (classical)
-    E_sab < E ≤ 1 keV      ←  free-gas kernel (thermal agitation of free nucleus)
-    E ≤ E_sab              ←  S(α,β) bound kernel + residual free-gas for unbound nuclides
+    E > E_fg                      ←  cold elastic, stationary target
+    E_sab < E ≤ E_fg              ←  free-gas kernel (thermally moving free nucleus)
+    E ≤ E_sab                     ←  S(α,β) bound kernel + optional free-gas mix
 ```
 
-- **Cold elastic** uses the two-body lab kinematics described in
-  [UFG grid & scattering](ufg_grid.md).
-- **Free-gas** accounts for the Maxwellian velocity distribution of the target at
-  temperature $T$; mandatory in the range where targets move but are not yet bound.
-- **S(α,β)** is the ENDF File 7 thermal-scattering law for nuclides chemically bound
-  in a specific matrix (H in H₂O, C in graphite, Zr in ZrH, …).
+- **Cold elastic** uses the two-body lab kinematics in
+  [UFG grid & scattering](ufg_grid.md#elastic-two-body-kinematics-stationary-target).
+- **Free-gas** accounts for the Maxwell–Boltzmann velocity distribution of the
+  target nucleus at temperature $T$.
+- **$S(\alpha,\beta)$** is the ENDF File 7 thermal-scattering law for nuclides
+  chemically bound in a specific matrix (H in H₂O, C in graphite, Zr in ZrH, …).
 
-The transition energy $E_\text{sab}$ is set per thermal table — typically 4–5 eV
-for common moderators.
+The free-gas upper cutoff $E_\text{fg}$ is controlled by
+`free_gas_cutoff_ev` (default **400 eV**, matching OpenMC); the free-gas /
+$S(\alpha,\beta)$ transition $E_\text{sab}$ is set per thermal table — typically
+4 – 5 eV for common moderators. For heavy nuclides $A > A_\text{max}$ (default
+**300**), the cold-elastic kernel is used throughout: heavy nuclei barely move
+at reactor temperatures, so the free-gas kernel would only add numerical noise.
+
+The Doppler-broadened resonance kernel ([O&S](resonance_kernel.md)) operates
+in the **resonance** energy range ($\lesssim 1$ keV, $A \gtrsim 10$) and can
+also substitute for the cold-elastic treatment there when enabled; it is
+independent of the free-gas / $S(\alpha,\beta)$ machinery.
 
 ## The bound-atom cross section $\sigma_b$
 
-The S(α,β) and free-gas formalisms normalise by the *bound-atom* cross section
+The free-gas and $S(\alpha,\beta)$ formalisms normalise by the **bound-atom**
+cross section
 
 $$
 \sigma_b \;=\; \sigma_\text{free}\,\left(\frac{A+1}{A}\right)^2,
 $$
 
-where $A$ is the atomic mass ratio. This reduced-mass factor accounts for the fact
-that the fundamental scattering amplitude is defined in the centre-of-mass frame,
-whereas the experimentally reported $\sigma_\text{free}$ is a lab-frame quantity.
-For hydrogen ($A \approx 1$) the enhancement is a factor of 4; for heavy
-nuclei $\sigma_b \to \sigma_\text{free}$.
+where $A$ is the atomic mass ratio. The reduced-mass factor accounts for the
+fact that the fundamental scattering amplitude is defined in the
+centre-of-mass frame, whereas the tabulated $\sigma_\text{free}$ is a
+lab-frame quantity. For hydrogen ($A \approx 1$) the enhancement is ~4×; for
+heavy nuclei $\sigma_b \to \sigma_\text{free}$.
 
 ## The free-gas kernel
 
-The double-differential free-gas kernel, angle-integrated, is
+### Differential form
+
+The double-differential free-gas kernel, integrated over scattering angle,
+reads
 
 $$
-\sigma_{s}^\text{fg}(E \to E') \;=\;
-\frac{\sigma_b\,A}{4E}\,
-F\!\bigl(E, E', T\bigr),
+\sigma_s^{\text{fg}}(E \to E')
+\;=\; \frac{\sigma_b\,A}{4\,E}\,
+  \int_{\alpha_\min}^{\alpha_\max}\!S(\alpha,\beta)\,d\alpha,
 $$
 
-with $F$ built from error functions of the standard thermal variables. The
-implementation in `src/xs/xs_processor.cpp` uses:
+with the dimensionless momentum- and energy-transfer variables
 
-- a **constant $\sigma_b$** sampled at 1 MeV rather than a re-evaluated
-  energy-dependent bound cross section — avoiding artefacts near resonances;
-- **8-point source sub-sampling × 4-point Gauss–Legendre dest quadrature** over
-  each source/destination group pair;
-- a **window floor of 15 $kT$** below the source energy to capture significant
-  up-scatter transfers while avoiding ∞-tail cost;
-- **mass-ratio gating** ($A \leq 10$): above this, a cold elastic treatment is used
-  even inside the nominally-thermal range. Heavy nuclei barely move at reactor
-  temperatures, so free-gas would only add numerical noise.
+$$
+\alpha \;=\; \frac{E + E' - 2\mu_0\sqrt{E\,E'}}{A\,k_B T},
+\qquad
+\beta \;=\; \frac{E' - E}{k_B T},
+$$
+
+and the short-collision-time Gaussian scattering law
+
+$$
+S(\alpha,\beta) \;=\; \frac{1}{\sqrt{4\pi\alpha}}\,
+  \exp\!\left[-\frac{(\alpha + \beta)^2}{4\alpha}\right].
+$$
+
+The $\alpha$-integration limits correspond to the $\mu_0 = \pm 1$ kinematic
+extremes,
+
+$$
+\alpha_\min \;=\; \frac{(\sqrt{E'} - \sqrt{E})^2}{A\,k_B T},
+\qquad
+\alpha_\max \;=\; \frac{(\sqrt{E'} + \sqrt{E})^2}{A\,k_B T}.
+$$
+
+### Legendre moments with stable evaluation
+
+For Legendre order $\ell$, a change of variables $\mu_0 \to t$ reduces the
+kernel to an integral of the form $e^{-\beta/2} J_k(\beta)$, where the factor
+$e^{-\beta/2}$ can cause catastrophic cancellation at large $|\beta|$ (for
+example $\beta \approx -50$ at $E = 2.6$ eV, $T = 600$ K).
+
+UFG-Transport uses the rescaled form
+
+$$
+e^{-\beta/2}\,J_k \;=\; \int e^{-u^2}\,dt,
+\qquad u \;=\; \tfrac{t}{2} \pm \tfrac{|\beta|}{2t},
+$$
+
+with $J_0$ via a stable `erfcx` formula, $J_1$ via differentiation w.r.t.
+$a = 1/4$, and higher moments through an erf-based antiderivative recurrence.
+This produces numerically stable $\ell \geq 1$ moments throughout the thermal
+range.
+
+### Numerical parameters
+
+| Parameter | Default | Role |
+|---|---|---|
+| `num_quad_points` | 64 | Gauss–Legendre points for the $\alpha$-integral |
+| source sub-samples | 16 (≥ `num_quad_points / 4`) | equi-lethargy sub-samples per source group |
+| `free_gas_cutoff_ev` | 400 eV | upper energy for the free-gas regime |
+| `free_gas_A_max` | 300 | maximum AWR; heavier nuclides use cold elastic |
+| `sab_source_subsamples` | 8 | equi-lethargy sub-samples inside $S(\alpha,\beta)$ |
 
 A $k_BT$ fallback
 
 $$
-kT \;\approx\; 8.617 \times 10^{-5}\;\text{eV/K}\,\times\,T[\text{K}]
+k_B T \;\approx\; 8.617 \times 10^{-5}\,\text{eV/K}\;\times\;T[\text{K}]
 $$
 
-is used for nuclides whose HDF5 file is missing the `kTs/<temp>K` dataset (this
-happened historically for H-1 and O-16 in several libraries).
+is used for nuclides whose HDF5 file is missing the `kTs/<temp>K` dataset
+(which historically affected some H-1 and O-16 evaluations).
 
-## S(α,β) for bound scatterers
+## $S(\alpha,\beta)$ for bound scatterers
 
 For bound nuclides the incoherent inelastic contribution is
 
 $$
-\sigma_{s}^\text{sab}(E\to E',\mu) \;=\;
-\frac{\sigma_b}{2kT}\,\sqrt{\frac{E'}{E}}\,
-e^{-\beta/2}\,S(\alpha,\beta),
+\frac{d^2\sigma^{\text{sab}}_s}{d\Omega\,dE'}
+\;=\;
+\frac{\sigma_b}{4\pi\,k_B T}\,\sqrt{\frac{E'}{E}}\,
+  e^{-\beta/2}\,S(\alpha,\beta),
 $$
 
-with the usual dimensionless momentum- and energy-transfer variables
+with the tabulated $S(\alpha,\beta)$ read from the OpenMC thermal HDF5 file
+and the angular integration performed on the stored $(\mu,\mathrm{PDF})$
+discrete sets. Coherent elastic is additively included for crystalline binders
+(graphite, beryllium).
 
-$$
-\alpha \;=\; \frac{E + E' - 2\mu\sqrt{EE'}}{A\,kT},
-\qquad
-\beta \;=\; \frac{E' - E}{kT}.
-$$
+For $E \leq E_\text{sab}$, the processor can optionally **mix** the
+$S(\alpha,\beta)$ contribution with a residual free-gas contribution using the
+`sab_fraction` parameter (1.0 = pure $S(\alpha,\beta)$, which is the default
+for bound nuclides).
 
-The S(α,β) table is read from the OpenMC thermal HDF5 file; angular integration
-uses the tabulated $(\mu,\text{PDF})$ discrete sets. Coherent elastic is additively
-included for crystalline binders (graphite, beryllium).
+## Why three regimes, and not two?
 
-## Why three regimes — and not two?
+Merging the free-gas and cold-elastic regimes (i.e. using free-gas everywhere
+below some cutoff) produces spurious up-scatter noise for heavy nuclei that
+barely thermalise. Using cold elastic too low in energy misses the thermal
+up-scatter that drives the Maxwellian spectrum. The three-regime split lets
+light moderators see free-gas down to $E_\text{sab}$ and $S(\alpha,\beta)$
+below it, while heavy fuel nuclides use cold elastic throughout, at the cost
+of one extra threshold.
 
-Merging the free-gas and cold-elastic regimes (i.e. using free-gas everywhere below
-some cutoff) causes spurious up-scatter noise for heavy nuclei that barely
-thermalise. Conversely, using cold elastic too low in energy misses the thermal
-up-scatter that drives the Maxwellian spectrum. The three-regime split lets light
-moderators see free-gas down to $E_\text{sab}$ and then S(α,β) below it, while heavy
-fuel nuclides use cold elastic throughout — at the cost of one extra threshold.
+Unit tests in the project history confirm that the three-regime model
+reproduces a smooth Maxwellian flux at 600 K in a UO₂ + H₂O mixture, with the
+0-D solver converging to $\max_g |r_g| < 10^{-10}$ in a handful of
+symmetric-Gauss–Seidel iterations at UFG resolution.
 
-The unit test results in the project history showed that the three-regime model
-(with the 8×4 sub-sampling and mass gating described above) reproduces a smooth
-Maxwellian flux at 600 K in a UO₂+H₂O mixture, converging in ~10 symmetric
-Gauss–Seidel iterations with residual $\max_g |r_g| < 7\times10^{-11}$.
+## Further reading
 
-## Further reading (inside the repo)
+### Inside the repo
 
+- `include/xs/thermal_kernel.hpp`, `src/xs/thermal_kernel.cpp` — free-gas
+  kernel and stable $\ell \geq 1$ moments.
+- `src/xs/xs_processor.cpp` — three-regime routing, $S(\alpha,\beta)$ driver.
 - `docs/theory_thermal_kernel_prefactor.md` — full derivation of the free-gas
   prefactor.
-- `docs/report_free_gas_L1_stable_moments.md` — higher-order moments and stability.
-- `docs/report_analytic_free_gas_kernel.md` — analytic cross-checks.
-- `src/xs/thermal_kernel.cpp`, `src/xs/xs_processor.cpp` — implementation.
+- `docs/report_free_gas_L1_stable_moments.md` — stable higher-moment formulas.
 
-## External references
+### External
 
-- R. E. MacFarlane, *NJOY: The Nuclear Data Processing System* (LA-UR-17-20093) —
-  Chapters on THERMR and GROUPR.
+- R. E. MacFarlane, *NJOY: The Nuclear Data Processing System*
+  (LA-UR-17-20093) — chapters on THERMR and GROUPR.
 - D. E. Parks, *Thermal Neutron Scattering*, ORNL-TM-1234.
 - ENDF-6 Manual, Appendix D: Thermal Scattering Law.

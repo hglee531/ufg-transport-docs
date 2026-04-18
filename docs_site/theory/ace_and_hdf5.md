@@ -41,8 +41,8 @@ For each nuclide at each available temperature the `ufg::ace::AceReader` retriev
 - **Energy distributions** — fission spectra (Maxwell, Watt, continuous tabular)
   and continuous secondary distributions for inelastics.
 - **Fission data** — $\nu$ (total or prompt) and the emission spectrum χ.
-- **Unresolved resonance probability tables** — Section 33/URR, used for
-  p-table sampling in the UFG processor.
+- **Unresolved resonance probability tables** (ENDF MF 2, LRU = 2), used by
+  the [narrow-resonance p-table](urr_ptable.md) module.
 - **Thermal scattering** — S(α,β) kernels for bound scatterers
   (`c_H_in_H2O`, `c_C_in_graphite`, …), evaluated as incoherent inelastic scattering
   below a nuclide-dependent cutoff (typically 4–5 eV).

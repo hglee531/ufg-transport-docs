@@ -59,16 +59,18 @@ and width are robust to the numerical-integration choices.
 ## Reproducing these figures
 
 ```bash
+# HFG + UFG + MG pincell with Sn
+./build/Release/ufg_1d_app examples/pwr_pincell_multilevel_sn.i \
+                           --solver sn --sn-order 8 \
+                           --output-dir output/pincell_multilevel_sn
+
 # HFG + UFG + MG pincell with Pn
 ./build/Release/ufg_1d_app examples/pwr_pincell_multilevel_pn.i \
+                           --solver pn --pn-order 3 \
                            --output-dir output/pincell_multilevel_pn
 
-# HFG + UFG + MG pincell with CPM (cylindrical)
-./build/Release/ufg_1d_app examples/pwr_pincell_multilevel_cpm.i \
-                           --output-dir output/pincell_multilevel_cpm
-
 python scripts/plot_flux_spectra.py \
-       output/pincell_multilevel_pn output/pincell_multilevel_cpm \
+       output/pincell_multilevel_sn output/pincell_multilevel_pn \
        -o plots/multilevel.png
 
 # 0-D UO2 + H2O

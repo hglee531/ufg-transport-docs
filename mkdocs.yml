@@ -71,11 +71,12 @@ nav:
       - ACE & HDF5 data: theory/ace_and_hdf5.md
       - UFG grid & scattering: theory/ufg_grid.md
       - Thermal scattering: theory/thermal_scattering.md
+      - Resonance kernel (O&S): theory/resonance_kernel.md
+      - URR p-tables (NR): theory/urr_ptable.md
       - Sn (slab): theory/solvers_sn.md
       - Pn (slab): theory/solvers_pn.md
-      - CPM (cylindrical): theory/solvers_cpm.md
-      - Sn (cylindrical): theory/solvers_sn_cyl.md
       - Multi-level condensation: theory/multilevel.md
+      - Spectrum Expansion (SpecEx): theory/specex.md
   - User Guide:
       - Install & build: guide/install.md
       - Running the code: guide/running.md
