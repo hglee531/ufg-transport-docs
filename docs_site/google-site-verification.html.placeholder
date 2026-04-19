@@ -1,0 +1,19 @@
+<!--
+  Placeholder for the Google Search Console HTML verification file.
+
+  To enable Google Search indexing with traffic data:
+
+    1. Go to https://search.google.com/search-console.
+    2. Add a property for: https://hglee531.github.io/ufg-transport-docs/.
+    3. Choose "HTML file" as the verification method.
+    4. Download the file (named something like googleXXXXXXXXXXXXXXXX.html).
+    5. Place that file in docs_site/ alongside this placeholder. The file
+       must keep its exact Google-supplied filename so it lives at
+       https://hglee531.github.io/ufg-transport-docs/googleXXXXXXXXXXXXXXXX.html
+       on the rendered site.
+    6. In Search Console, click "Verify".
+    7. Once verified, submit the sitemap:
+         https://hglee531.github.io/ufg-transport-docs/sitemap.xml
+
+  You can then delete this placeholder.
+-->
